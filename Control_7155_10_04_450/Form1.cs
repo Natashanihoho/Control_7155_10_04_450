@@ -4,12 +4,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace Control_7155_10_04_450
 {
@@ -26,14 +28,23 @@ namespace Control_7155_10_04_450
 
         private byte[] bufRx = new byte[RX_SIZE];
         private byte bytesCount = 0;
+
+        private List<Signal> signals = new List<Signal>();
+       
+                
         public Form1()
         {
             InitializeComponent();
-            Console.WriteLine("Init");
             string[] ports = SerialPort.GetPortNames();
             comboBoxPorts.Items.AddRange(ports);
             for (int i = 0; i < ports.Length; i++)
                 Console.WriteLine(ports[i]);
+
+            signals = FileDownloader.downloadAllSignals();
+            foreach(Signal signal in signals)
+            {
+                Console.WriteLine(signal);
+            }
         }
 
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
@@ -108,5 +119,17 @@ namespace Control_7155_10_04_450
         {
 
         }
+
+        private void buttonTest_Click(object sender, EventArgs e)
+        {
+            List<string> items = new List<string>();
+            foreach (object selectedItem in checkedListBox1.CheckedItems)
+            {
+                Console.WriteLine(selectedItem.ToString());
+            }
+        }
+      
     }
 }
+
+
