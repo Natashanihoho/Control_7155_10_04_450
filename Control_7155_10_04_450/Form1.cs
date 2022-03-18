@@ -41,10 +41,10 @@ namespace Control_7155_10_04_450
                 Console.WriteLine(ports[i]);
 
             signals = FileDownloader.downloadAllSignals();
-            foreach(Signal signal in signals)
+            /*foreach(Signal signal in signals)
             {
                 Console.WriteLine(signal);
-            }
+            }*/
         }
 
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
@@ -85,17 +85,34 @@ namespace Control_7155_10_04_450
                 sum ^= bytes[i];
             return sum;
         }
-        private byte[] createPacketToSend()
+        private byte[] createPacketToSend(List<Signal> signals)
         {
             byte[] packToSend = new byte[TX_SIZE];
 
             packToSend[0] = ZERO_BYTE_TX;
             packToSend[1] = FIRST_BYTE_TX;
 
+            int bt;
+
+            foreach(Signal signal in signals)
+            {
+                bt = packToSend[signal.ByteNumber];
+
+                if (signal.isChecked)
+                    bt |= (1<<signal.BitNumber);
+                else
+                    bt &= ~(1<<signal.BitNumber);
+                packToSend[signal.ByteNumber] = (byte)bt;
+
+            }
+
             packToSend[TX_SIZE-1] = calcSumXor(packToSend, TX_SIZE-1);
+
+            Console.WriteLine("TX: " + BitConverter.ToString(packToSend));
 
             return packToSend;
         }
+        
         private void sendData(String port, byte[] pack)
         {
             serialPort.PortName = port;
@@ -112,7 +129,8 @@ namespace Control_7155_10_04_450
         private void buttonSend_Click(object sender, EventArgs e)
         {
             String port = comboBoxPorts.Text;
-            sendData(port, createPacketToSend());
+            //createPacketToSend(signals);
+            sendData(port, createPacketToSend(signals));
         }
 
         private void comboBoxPorts_SelectedIndexChanged(object sender, EventArgs e)
@@ -120,15 +138,14 @@ namespace Control_7155_10_04_450
 
         }
 
-        private void buttonTest_Click(object sender, EventArgs e)
+        private void CheckedChangedEvent(object sender, EventArgs e)
         {
-            List<string> items = new List<string>();
-            foreach (object selectedItem in checkedListBox1.CheckedItems)
-            {
-                Console.WriteLine(selectedItem.ToString());
-            }
+            CheckBox checkBox = (CheckBox)sender;
+            Signal signal = signals.Find(n => n.Name.Equals(checkBox.Text));
+            signal.isChecked = checkBox.Checked;
+            //signals.Find(n => n.Name.Equals(checkBox.Text)).isChecked = checkBox.Checked;
+            Console.WriteLine(signal + " -------> isChecked: " + signal.isChecked);
         }
-      
     }
 }
 

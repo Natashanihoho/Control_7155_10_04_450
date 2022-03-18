@@ -14,7 +14,8 @@ namespace Control_7155_10_04_450
         public string Name { get; set; }
         public byte ByteNumber { get; set; }
         public byte BitNumber { get; set; }
-        public bool IsWaitingResponce { get; set; }
+        public bool isChecked { get; set; }
+        public bool IsWaitingResponce { get; set; }        
 
         public Signal(string name, byte nByte, byte nBit, bool isWaitingResponce)
         {
