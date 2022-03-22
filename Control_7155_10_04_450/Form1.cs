@@ -26,12 +26,17 @@ namespace Control_7155_10_04_450
         private const byte RX_SIZE = 8;
         private const byte TX_SIZE = 16;
 
+        private const string OK_MESSAGE = "OK";
+        private const string ERROR_MESSAGE = "ERROR";
+
         private byte[] bufRx = new byte[RX_SIZE];
         private byte bytesCount = 0;
 
         private List<Signal> signals = new List<Signal>();
-       
-                
+        private Dictionary<string, Label> map;
+
+        private bool isCorrectRx = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -41,14 +46,73 @@ namespace Control_7155_10_04_450
                 Console.WriteLine(ports[i]);
 
             signals = FileDownloader.downloadAllSignals();
+
+            map = new Dictionary<string, Label>()
+            {
+                { "TV2S - TV3S", label1 },
+                { "CS_MA - CS_ME", label2 },
+                { "CS_MB - CS_MF" , label3 },
+                { "CS_MC - CS_MN", label4 },
+                { "CS_MD - CS_MG", label5 },
+                { "INTDOP1 - INTDOP2", label6 },
+
+                { "INTP0 - INTP1", label7 },
+                { "INTP2 - INTP3", label8 },
+                { "INTP4 - INTP5", label9 },
+                { "SCK - SN", label10 },
+                { "WN - SN", label11 },
+                { "HOLDN - SN", label12 }, 
+            }; 
+            
+
             /*foreach(Signal signal in signals)
             {
                 Console.WriteLine(signal);
             }*/
+            //label1.Visible = false;
+        }
+
+        private void checkBits(int bt, int nBt)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                if (((bt >> i) & 0x01) == 0x01)
+                {
+                    Signal signal = signals.Find(n => n.ByteNumber == nBt && n.BitNumber == i);
+                    if(signal.isChecked)
+                    {
+                        Label label = map[signal.Name];
+                        label.BackColor = Color.GreenYellow;
+                        label.ForeColor = Color.Black;
+                        label.Text = OK_MESSAGE;
+                    }                        
+                    
+                }
+                else
+                {
+                    Signal signal = signals.Find(n => n.ByteNumber == nBt && n.BitNumber == i);
+                    if(signal.isChecked)
+                    {
+                        Label label = map[signal.Name];
+                        label.BackColor = Color.IndianRed;
+                        label.ForeColor = Color.Black;
+                        label.Text = ERROR_MESSAGE;
+                    }                       
+                    
+                }
+            }
+        }
+
+        private void setSignalsResponses(byte[] pack)
+        {            
+            checkBits(pack[2], 9);
+            checkBits(pack[3], 10);
         }
 
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
+            bytesCount = 0;
+            isCorrectRx = false;
             Array.Clear(bufRx, 0, bufRx.Length);
 
             while(serialPort.BytesToRead > 0)
@@ -58,16 +122,22 @@ namespace Control_7155_10_04_450
                     bufRx[bytesCount] = (byte)serialPort.ReadByte();
                     bytesCount++;
 
-                    switch(bytesCount)
+                    switch (bytesCount)
                     {
                         case 1: if (bufRx[0] != ZERO_BYTE_RX) bytesCount = 0; break;
                         case 2: if (bufRx[1] != FIRST_BYTE_RX) bytesCount = 0; break;
-                        case RX_SIZE: 
-                            bytesCount = 0; 
-                            if(calcSumXor(bufRx, RX_SIZE) == 0)                            
-                                Console.WriteLine("RX: " + BitConverter.ToString(bufRx));                             
-                            else                            
-                                Console.WriteLine("RX: Invalid XOR sum");                            
+                        case RX_SIZE:
+                            bytesCount = 0;
+                            if (calcSumXor(bufRx, RX_SIZE) == 0)
+                            {
+                                Console.WriteLine("RX: " + BitConverter.ToString(bufRx));
+                                isCorrectRx = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("RX: Invalid XOR sum");
+                            }                   
+                                                           
                             break;
                     }
                 }
@@ -75,7 +145,16 @@ namespace Control_7155_10_04_450
                 {
                     MessageBox.Show(err.Message);
                 }
+
+                if (isCorrectRx)
+                    break;
             }
+
+            if(isCorrectRx)
+            {
+                setSignalsResponses(bufRx);
+            }
+            
         }
 
         private byte calcSumXor(byte[] bytes, byte length)
@@ -108,7 +187,7 @@ namespace Control_7155_10_04_450
 
             packToSend[TX_SIZE-1] = calcSumXor(packToSend, TX_SIZE-1);
 
-            Console.WriteLine("TX: " + BitConverter.ToString(packToSend));
+            //Console.WriteLine("TX: " + BitConverter.ToString(packToSend));
 
             return packToSend;
         }
@@ -121,7 +200,7 @@ namespace Control_7155_10_04_450
             {
                 serialPort.Write(pack, 0, TX_SIZE);
                 Console.WriteLine("TX: " + BitConverter.ToString(pack));
-                Thread.Sleep(200);
+                Thread.Sleep(500);
                 serialPort.Close();
             }
         }
@@ -135,7 +214,9 @@ namespace Control_7155_10_04_450
 
         private void comboBoxPorts_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //label1.BackColor = Color.Red;
+            //label1.ForeColor = Color.Black;
+            //label1.Text = "ERROR";
         }
 
         private void CheckedChangedEvent(object sender, EventArgs e)
@@ -143,6 +224,10 @@ namespace Control_7155_10_04_450
             CheckBox checkBox = (CheckBox)sender;
             Signal signal = signals.Find(n => n.Name.Equals(checkBox.Text));
             signal.isChecked = checkBox.Checked;
+            if(signal.IsWaitingResponce)
+            {
+
+            }
             //signals.Find(n => n.Name.Equals(checkBox.Text)).isChecked = checkBox.Checked;
             Console.WriteLine(signal + " -------> isChecked: " + signal.isChecked);
         }
