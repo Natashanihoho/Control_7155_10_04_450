@@ -102,12 +102,29 @@ namespace Control_7155_10_04_450
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBoxTV2S_TV3S = new System.Windows.Forms.CheckBox();
             this.buttonSend = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.radioButtonDA10 = new System.Windows.Forms.RadioButton();
+            this.radioButtonDA9 = new System.Windows.Forms.RadioButton();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort
@@ -119,7 +136,7 @@ namespace Control_7155_10_04_450
             // 
             this.comboBoxPorts.FormattingEnabled = true;
             this.comboBoxPorts.ItemHeight = 13;
-            this.comboBoxPorts.Location = new System.Drawing.Point(17, 425);
+            this.comboBoxPorts.Location = new System.Drawing.Point(596, 465);
             this.comboBoxPorts.Name = "comboBoxPorts";
             this.comboBoxPorts.Size = new System.Drawing.Size(93, 21);
             this.comboBoxPorts.TabIndex = 0;
@@ -1010,7 +1027,7 @@ namespace Control_7155_10_04_450
             // buttonSend
             // 
             this.buttonSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSend.Location = new System.Drawing.Point(386, 403);
+            this.buttonSend.Location = new System.Drawing.Point(721, 453);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(115, 43);
             this.buttonSend.TabIndex = 3;
@@ -1018,21 +1035,178 @@ namespace Control_7155_10_04_450
             this.buttonSend.UseVisualStyleBackColor = true;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.groupBox7);
+            this.groupBox6.Controls.Add(this.label22);
+            this.groupBox6.Controls.Add(this.label21);
+            this.groupBox6.Controls.Add(this.label20);
+            this.groupBox6.Controls.Add(this.label19);
+            this.groupBox6.Controls.Add(this.label18);
+            this.groupBox6.Controls.Add(this.label17);
+            this.groupBox6.Controls.Add(this.label16);
+            this.groupBox6.Controls.Add(this.label15);
+            this.groupBox6.Controls.Add(this.label14);
+            this.groupBox6.Controls.Add(this.label13);
+            this.groupBox6.Controls.Add(this.trackBar1);
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox6.Location = new System.Drawing.Point(15, 350);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(255, 146);
+            this.groupBox6.TabIndex = 4;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "DAC checking";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label22.Location = new System.Drawing.Point(223, 115);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(15, 16);
+            this.label22.TabIndex = 2;
+            this.label22.Text = "9";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label21.Location = new System.Drawing.Point(200, 115);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(15, 16);
+            this.label21.TabIndex = 2;
+            this.label21.Text = "8";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label20.Location = new System.Drawing.Point(175, 115);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(15, 16);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "7";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label19.Location = new System.Drawing.Point(153, 115);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(15, 16);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "6";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label18.Location = new System.Drawing.Point(129, 115);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(15, 16);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "5";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.Location = new System.Drawing.Point(106, 115);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(15, 16);
+            this.label17.TabIndex = 2;
+            this.label17.Text = "4";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label16.Location = new System.Drawing.Point(82, 115);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(15, 16);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "3";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label15.Location = new System.Drawing.Point(58, 115);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(15, 16);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "2";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label14.Location = new System.Drawing.Point(35, 115);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(15, 16);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "1";
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(239, 403);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label13.Location = new System.Drawing.Point(12, 115);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 13);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "label13122";
+            this.label13.Size = new System.Drawing.Size(15, 16);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "0";
+            // 
+            // radioButtonDA10
+            // 
+            this.radioButtonDA10.AutoSize = true;
+            this.radioButtonDA10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButtonDA10.Location = new System.Drawing.Point(136, 14);
+            this.radioButtonDA10.Name = "radioButtonDA10";
+            this.radioButtonDA10.Size = new System.Drawing.Size(68, 24);
+            this.radioButtonDA10.TabIndex = 1;
+            this.radioButtonDA10.TabStop = true;
+            this.radioButtonDA10.Text = "DA10";
+            this.radioButtonDA10.UseVisualStyleBackColor = true;
+            this.radioButtonDA10.CheckedChanged += new System.EventHandler(this.radioButtonChangedEvent);
+            // 
+            // radioButtonDA9
+            // 
+            this.radioButtonDA9.AutoSize = true;
+            this.radioButtonDA9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButtonDA9.Location = new System.Drawing.Point(15, 14);
+            this.radioButtonDA9.Name = "radioButtonDA9";
+            this.radioButtonDA9.Size = new System.Drawing.Size(59, 24);
+            this.radioButtonDA9.TabIndex = 1;
+            this.radioButtonDA9.TabStop = true;
+            this.radioButtonDA9.Text = "DA9";
+            this.radioButtonDA9.UseVisualStyleBackColor = true;
+            this.radioButtonDA9.CheckedChanged += new System.EventHandler(this.radioButtonChangedEvent);
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(5, 79);
+            this.trackBar1.Maximum = 9;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(238, 45);
+            this.trackBar1.TabIndex = 0;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.radioButtonDA10);
+            this.groupBox7.Controls.Add(this.radioButtonDA9);
+            this.groupBox7.Location = new System.Drawing.Point(15, 20);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(217, 44);
+            this.groupBox7.TabIndex = 5;
+            this.groupBox7.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 467);
-            this.Controls.Add(this.label13);
+            this.ClientSize = new System.Drawing.Size(853, 509);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -1052,8 +1226,12 @@ namespace Control_7155_10_04_450
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1131,7 +1309,21 @@ namespace Control_7155_10_04_450
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.RadioButton radioButtonDA10;
+        private System.Windows.Forms.RadioButton radioButtonDA9;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.GroupBox groupBox7;
     }
 }
 

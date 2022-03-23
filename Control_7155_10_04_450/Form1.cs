@@ -94,7 +94,7 @@ namespace Control_7155_10_04_450
                     if(signal.isChecked)
                     {
                         Label label = map[signal.Name];
-                        label.BackColor = Color.IndianRed;
+                        label.BackColor = Color.Red;
                         label.ForeColor = Color.Black;
                         label.Text = ERROR_MESSAGE;
                     }                       
@@ -185,6 +185,19 @@ namespace Control_7155_10_04_450
 
             }
 
+            switch(trackBar1.Value)
+            {
+                case 1: packToSend[11] |= (1 << 3); break;
+                case 2: packToSend[11] |= (1 << 4); break;
+                case 3: packToSend[11] |= (1 << 5); break;
+                case 4: packToSend[11] |= (1 << 6); break;
+                case 5: packToSend[11] |= (1 << 7); break;
+                case 6: packToSend[12] |= (1 << 0); break;
+                case 7: packToSend[12] |= (1 << 1); break;
+                case 8: packToSend[12] |= (1 << 2); break;
+                case 9: packToSend[11] |= (1 << 2); break;
+            }
+
             packToSend[TX_SIZE-1] = calcSumXor(packToSend, TX_SIZE-1);
 
             //Console.WriteLine("TX: " + BitConverter.ToString(packToSend));
@@ -229,6 +242,14 @@ namespace Control_7155_10_04_450
 
             }
             //signals.Find(n => n.Name.Equals(checkBox.Text)).isChecked = checkBox.Checked;
+            Console.WriteLine(signal + " -------> isChecked: " + signal.isChecked);
+        }
+
+        private void radioButtonChangedEvent(object sender, EventArgs e)
+        {
+            RadioButton radioButton = (RadioButton)sender;
+            Signal signal = signals.Find(n => n.Name.Equals(radioButton.Text));
+            signal.isChecked = radioButton.Checked;
             Console.WriteLine(signal + " -------> isChecked: " + signal.isChecked);
         }
     }
