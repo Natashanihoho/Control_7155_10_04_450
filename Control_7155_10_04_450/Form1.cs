@@ -47,7 +47,7 @@ namespace Control_7155_10_04_450
             for (int i = 0; i < ports.Length; i++)
                 Console.WriteLine(ports[i]);
 
-            signals = FileDownloader.downloadAllSignals();
+            signals = downloadAllSignals();
 
             map = new Dictionary<string, Label>()
             {
@@ -66,12 +66,6 @@ namespace Control_7155_10_04_450
                 { "HOLDN - SN", label12 }
             }; 
             
-
-            /*foreach(Signal signal in signals)
-            {
-                Console.WriteLine(signal);
-            }*/
-            //label1.Visible = false;
         }
 
         private void checkBits(int bt, int nBt)
@@ -232,8 +226,6 @@ namespace Control_7155_10_04_450
             
             packToSend[TX_SIZE-1] = calcSumXor(packToSend, TX_SIZE-1);
 
-            //Console.WriteLine("TX: " + BitConverter.ToString(packToSend));
-
             return packToSend;
         }
         
@@ -254,7 +246,6 @@ namespace Control_7155_10_04_450
         {
             resetLabels();
             String port = comboBoxPorts.Text;
-            //createPacketToSend(signals);
             sendData(port, createPacketToSend(signals));
         }
 
@@ -268,12 +259,7 @@ namespace Control_7155_10_04_450
         {
             CheckBox checkBox = (CheckBox)sender;
             Signal signal = signals.Find(n => n.Name.Equals(checkBox.Text));
-            signal.isChecked = checkBox.Checked;
-            if(checkBox.Checked)
-            {
-                
-            }
-            //signals.Find(n => n.Name.Equals(checkBox.Text)).isChecked = checkBox.Checked;
+            signal.isChecked = checkBox.Checked;            
             Console.WriteLine(signal + " -------> isChecked: " + signal.isChecked);
         }
 

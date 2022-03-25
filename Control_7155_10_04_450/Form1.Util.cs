@@ -81,6 +81,9 @@ namespace Control_7155_10_04_450
             resetCheckBoxes();
             resetRadioButtons();
             trackBar1.Value = 0;
+            trackBar1.Enabled = false;
+            List<Label> labels = new List<Label>() { label13, label14, label15, label16, label17, label18, label19, label20, label21, label22 };
+            labels.ForEach(n => n.Enabled = false);
         }
     }
 }
