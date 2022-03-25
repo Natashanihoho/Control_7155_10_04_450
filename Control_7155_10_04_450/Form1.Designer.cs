@@ -146,7 +146,7 @@ namespace Control_7155_10_04_450
             this.comboBoxPorts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxPorts.FormattingEnabled = true;
             this.comboBoxPorts.ItemHeight = 16;
-            this.comboBoxPorts.Location = new System.Drawing.Point(285, 467);
+            this.comboBoxPorts.Location = new System.Drawing.Point(285, 479);
             this.comboBoxPorts.Name = "comboBoxPorts";
             this.comboBoxPorts.Size = new System.Drawing.Size(120, 24);
             this.comboBoxPorts.TabIndex = 0;
@@ -154,6 +154,7 @@ namespace Control_7155_10_04_450
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.groupBox1.Controls.Add(this.checkBoxUPR4A);
             this.groupBox1.Controls.Add(this.checkBoxUPR3A);
             this.groupBox1.Controls.Add(this.checkBoxUPR2A);
@@ -167,6 +168,7 @@ namespace Control_7155_10_04_450
             this.groupBox1.Controls.Add(this.checkBoxY1PA);
             this.groupBox1.Enabled = false;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.groupBox1.Location = new System.Drawing.Point(15, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(120, 330);
@@ -319,6 +321,7 @@ namespace Control_7155_10_04_450
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.groupBox2.Controls.Add(this.checkBoxUPR4B);
             this.groupBox2.Controls.Add(this.checkBoxUPR3B);
             this.groupBox2.Controls.Add(this.checkBoxUPR2B);
@@ -484,6 +487,7 @@ namespace Control_7155_10_04_450
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.groupBox3.Controls.Add(this.checkBoxDSPDP6);
             this.groupBox3.Controls.Add(this.checkBoxDSPDP5);
             this.groupBox3.Controls.Add(this.checkBoxDSPDP4);
@@ -635,6 +639,7 @@ namespace Control_7155_10_04_450
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.groupBox4.Controls.Add(this.checkBoxIO_TV5S);
             this.groupBox4.Controls.Add(this.checkBoxIO_TV3S);
             this.groupBox4.Controls.Add(this.checkBoxIO_TV4S);
@@ -758,6 +763,7 @@ namespace Control_7155_10_04_450
             // 
             // groupBox5
             // 
+            this.groupBox5.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.label10);
@@ -1117,18 +1123,21 @@ namespace Control_7155_10_04_450
             // 
             // buttonSend
             // 
+            this.buttonSend.BackColor = System.Drawing.Color.LightBlue;
             this.buttonSend.Enabled = false;
+            this.buttonSend.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.buttonSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonSend.Location = new System.Drawing.Point(555, 459);
             this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(281, 37);
+            this.buttonSend.Size = new System.Drawing.Size(281, 45);
             this.buttonSend.TabIndex = 3;
             this.buttonSend.Text = "SEND";
-            this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.UseVisualStyleBackColor = false;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // groupBox6
             // 
+            this.groupBox6.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.groupBox6.Controls.Add(this.groupBox7);
             this.groupBox6.Controls.Add(this.label22);
             this.groupBox6.Controls.Add(this.label21);
@@ -1143,7 +1152,7 @@ namespace Control_7155_10_04_450
             this.groupBox6.Controls.Add(this.trackBar1);
             this.groupBox6.Enabled = false;
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox6.Location = new System.Drawing.Point(15, 350);
+            this.groupBox6.Location = new System.Drawing.Point(15, 357);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(255, 146);
             this.groupBox6.TabIndex = 4;
@@ -1309,6 +1318,7 @@ namespace Control_7155_10_04_450
             // 
             // groupBox8
             // 
+            this.groupBox8.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.groupBox8.Controls.Add(this.comboBox1);
             this.groupBox8.Controls.Add(this.radioButtonDD2);
             this.groupBox8.Controls.Add(this.labelChip);
@@ -1316,9 +1326,9 @@ namespace Control_7155_10_04_450
             this.groupBox8.Controls.Add(this.radioButtonDD8);
             this.groupBox8.Enabled = false;
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox8.Location = new System.Drawing.Point(285, 350);
+            this.groupBox8.Location = new System.Drawing.Point(285, 357);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(255, 97);
+            this.groupBox8.Size = new System.Drawing.Size(255, 90);
             this.groupBox8.TabIndex = 5;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "ROM / RAM checking";
@@ -1396,20 +1406,21 @@ namespace Control_7155_10_04_450
             // 
             // buttonReset
             // 
+            this.buttonReset.BackColor = System.Drawing.Color.Silver;
             this.buttonReset.Enabled = false;
-            this.buttonReset.Location = new System.Drawing.Point(420, 465);
+            this.buttonReset.Location = new System.Drawing.Point(420, 477);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(120, 28);
+            this.buttonReset.Size = new System.Drawing.Size(120, 27);
             this.buttonReset.TabIndex = 6;
             this.buttonReset.Text = "Reset";
-            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.UseVisualStyleBackColor = false;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // labelInit
             // 
             this.labelInit.AutoSize = true;
             this.labelInit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInit.Location = new System.Drawing.Point(307, 448);
+            this.labelInit.Location = new System.Drawing.Point(307, 459);
             this.labelInit.Name = "labelInit";
             this.labelInit.Size = new System.Drawing.Size(83, 16);
             this.labelInit.TabIndex = 7;
@@ -1420,7 +1431,8 @@ namespace Control_7155_10_04_450
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(851, 509);
+            this.BackColor = System.Drawing.Color.SlateGray;
+            this.ClientSize = new System.Drawing.Size(851, 515);
             this.Controls.Add(this.labelInit);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.groupBox8);
@@ -1432,7 +1444,7 @@ namespace Control_7155_10_04_450
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.comboBoxPorts);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "7155.10.04.450";
             this.groupBox1.ResumeLayout(false);
