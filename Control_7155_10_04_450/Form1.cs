@@ -26,7 +26,7 @@ namespace Control_7155_10_04_450
         private const byte RX_SIZE = 8;
         private const byte TX_SIZE = 16;
 
-        private const string OK_MESSAGE = "OK";
+        private const string OK_MESSAGE = "OK        ";
         private const string ERROR_MESSAGE = "ERROR";
 
         private byte[] bufRx = new byte[RX_SIZE];
@@ -39,7 +39,9 @@ namespace Control_7155_10_04_450
 
         public Form1()
         {
+            
             InitializeComponent();
+
             string[] ports = SerialPort.GetPortNames();
             comboBoxPorts.Items.AddRange(ports);
             for (int i = 0; i < ports.Length; i++)
@@ -61,7 +63,7 @@ namespace Control_7155_10_04_450
                 { "INTP4 - INTP5", label9 },
                 { "SCK - SN", label10 },
                 { "WN - SN", label11 },
-                { "HOLDN - SN", label12 }, 
+                { "HOLDN - SN", label12 }
             }; 
             
 
@@ -107,6 +109,21 @@ namespace Control_7155_10_04_450
         {            
             checkBits(pack[2], 9);
             checkBits(pack[3], 10);
+            if((int)(pack[4] & 0x01) == 0x01)
+            {
+                if(radioButtonDD2.Checked == true || radioButtonDD8.Checked == true || radioButtonDD9.Checked == true)
+                {
+                    labelChip.BackColor = Color.GreenYellow;
+                    labelChip.ForeColor = Color.Black;
+                    labelChip.Text = OK_MESSAGE;
+                } 
+                else
+                {
+                    labelChip.BackColor = Color.Red;
+                    labelChip.ForeColor = Color.Black;
+                    labelChip.Text = ERROR_MESSAGE;
+                }
+            }
         }
 
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
@@ -198,6 +215,21 @@ namespace Control_7155_10_04_450
                 case 9: packToSend[11] |= (1 << 2); break;
             }
 
+            bt = packToSend[12];
+
+            if (((bt >> 5) & 0x01) == 0x01)
+            {
+                switch(comboBox1.SelectedText)
+                {
+                    case "bank 1": bt |= 0x00; break;
+                    case "bank 2": bt |= 0x01; break;
+                    case "bank 3": bt |= 0x02; break;
+                    case "bank 4": bt |= 0x03; break;
+                }
+
+                packToSend[12] = (byte)bt;
+            }
+            
             packToSend[TX_SIZE-1] = calcSumXor(packToSend, TX_SIZE-1);
 
             //Console.WriteLine("TX: " + BitConverter.ToString(packToSend));
@@ -220,6 +252,7 @@ namespace Control_7155_10_04_450
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
+            resetLabels();
             String port = comboBoxPorts.Text;
             //createPacketToSend(signals);
             sendData(port, createPacketToSend(signals));
@@ -227,9 +260,8 @@ namespace Control_7155_10_04_450
 
         private void comboBoxPorts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //label1.BackColor = Color.Red;
-            //label1.ForeColor = Color.Black;
-            //label1.Text = "ERROR";
+            labelInit.Visible = false;
+            setElementsVisibility();
         }
 
         private void CheckedChangedEvent(object sender, EventArgs e)
@@ -237,9 +269,9 @@ namespace Control_7155_10_04_450
             CheckBox checkBox = (CheckBox)sender;
             Signal signal = signals.Find(n => n.Name.Equals(checkBox.Text));
             signal.isChecked = checkBox.Checked;
-            if(signal.IsWaitingResponce)
+            if(checkBox.Checked)
             {
-
+                
             }
             //signals.Find(n => n.Name.Equals(checkBox.Text)).isChecked = checkBox.Checked;
             Console.WriteLine(signal + " -------> isChecked: " + signal.isChecked);
@@ -251,6 +283,23 @@ namespace Control_7155_10_04_450
             Signal signal = signals.Find(n => n.Name.Equals(radioButton.Text));
             signal.isChecked = radioButton.Checked;
             Console.WriteLine(signal + " -------> isChecked: " + signal.isChecked);
+            if (radioButton.Text.Equals("DD2"))
+            {
+                comboBox1.Enabled = true;
+                comboBox1.SelectedIndex = 0;                
+            }
+            else if(radioButton.Text.Equals("DA9") || radioButton.Text.Equals("DA10"))
+            {
+                trackBar1.Enabled = true;
+                setTrackBarLabels();
+            }
+
+
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            resetAllElements();
         }
     }
 }
