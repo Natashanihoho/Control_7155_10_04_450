@@ -59,15 +59,25 @@ namespace Control_7155_10_04_450
                 { "INTDOP1 - INTDOP2", label6 },
 
                 { "INTP0 - INTP1", label7 },
-                { "INTP2 - INTP3", label8 },
-                { "INTP4 - INTP5", label9 },
-                { "SCK - SN", label10 },
-                { "WN - SN", label11 },
-                { "HOLDN - SN", label12 }
+                { "INTP2 - INTP3", label9 },
+                { "INTP4 - INTP5", label11 }
             }; 
             
         }
 
+        private void showOkLabelText(Label label)
+        {            
+            label.BackColor = Color.GreenYellow;
+            label.ForeColor = Color.Black;
+            label.Text = OK_MESSAGE;
+        }
+
+        private void showErrorLabelText(Label label)
+        {
+            label.BackColor = Color.Red;
+            label.ForeColor = Color.Black;
+            label.Text = ERROR_MESSAGE;
+        }
         private void checkBits(int bt, int nBt)
         {
             for (int i = 0; i < 6; i++)
@@ -75,30 +85,57 @@ namespace Control_7155_10_04_450
                 if (((bt >> i) & 0x01) == 0x01)
                 {
                     Signal signal = signals.Find(n => n.ByteNumber == nBt && n.BitNumber == i);
-                    if(signal.isChecked)
+                    if(signal != null && signal.isChecked)
                     {
                         Label label = map[signal.Name];
-                        label.BackColor = Color.GreenYellow;
-                        label.ForeColor = Color.Black;
-                        label.Text = OK_MESSAGE;
+                        showOkLabelText(label);
+
+                        if(signal.Name.Equals("INTP0 - INTP1"))
+                        {
+                            if (((bt >> 4) & 0x01) == 0x01) showOkLabelText(label8);
+                            else showErrorLabelText(label8);
+                        }
+                        else if (signal.Name.Equals("INTP2 - INTP3"))
+                        {
+                            if (((bt >> 4) & 0x01) == 0x01) showOkLabelText(label10);
+                            else showErrorLabelText(label10);
+                        }
+                        else if (signal.Name.Equals("INTP4 - INTP5"))
+                        {
+                            if (((bt >> 4) & 0x01) == 0x01) showOkLabelText(label12);
+                            else showErrorLabelText(label12);
+                        }
                     }                        
                     
                 }
                 else
                 {
                     Signal signal = signals.Find(n => n.ByteNumber == nBt && n.BitNumber == i);
-                    if(signal.isChecked)
+                    if(signal != null && signal.isChecked)
                     {
                         Label label = map[signal.Name];
-                        label.BackColor = Color.Red;
-                        label.ForeColor = Color.Black;
-                        label.Text = ERROR_MESSAGE;
+                        showErrorLabelText(label);
+
+                        if (signal.Name.Equals("INTP0 - INTP1"))
+                        {
+                            if (((bt >> 4) & 0x01) == 0x01) showOkLabelText(label8);
+                            else showErrorLabelText(label8);
+                        }
+                        else if (signal.Name.Equals("INTP2 - INTP3"))
+                        {
+                            if (((bt >> 4) & 0x01) == 0x01) showOkLabelText(label10);
+                            else showErrorLabelText(label10);
+                        }
+                        else if (signal.Name.Equals("INTP4 - INTP5"))
+                        {
+                            if (((bt >> 4) & 0x01) == 0x01) showOkLabelText(label12);
+                            else showErrorLabelText(label12);
+                        }
                     }                       
                     
                 }
             }
         }
-
         private void setSignalsResponses(byte[] pack)
         {            
             checkBits(pack[2], 9);
@@ -192,6 +229,7 @@ namespace Control_7155_10_04_450
                     bt |= (1<<signal.BitNumber);
                 else
                     bt &= ~(1<<signal.BitNumber);
+                if (bt != 0) bt |= (1 << 6);    //ADDED
                 packToSend[signal.ByteNumber] = (byte)bt;
 
             }
@@ -278,6 +316,18 @@ namespace Control_7155_10_04_450
             Signal signal = signals.Find(n => n.Name.Equals(checkBox.Text));
             signal.isChecked = checkBox.Checked;            
             Console.WriteLine(signal + " -------> isChecked: " + signal.isChecked);
+            if(signal.Name.Equals("INTP0 - INTP1"))
+            {
+                checkBoxINV0.Checked = checkBox.Checked;
+            }
+            else if (signal.Name.Equals("INTP2 - INTP3"))
+            {
+                checkBoxINV1.Checked = checkBox.Checked;
+            }
+            else if (signal.Name.Equals("INTP4 - INTP5"))
+            {                
+                checkBoxINV2.Checked = checkBox.Checked;
+            }
         }
 
         private void radioButtonChangedEvent(object sender, EventArgs e)

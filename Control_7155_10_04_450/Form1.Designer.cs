@@ -89,14 +89,14 @@ namespace Control_7155_10_04_450
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox18 = new System.Windows.Forms.CheckBox();
+            this.checkBoxINV2 = new System.Windows.Forms.CheckBox();
+            this.checkBoxINV1 = new System.Windows.Forms.CheckBox();
             this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.checkBox17 = new System.Windows.Forms.CheckBox();
+            this.checkBoxINV0 = new System.Windows.Forms.CheckBox();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.checkBox16 = new System.Windows.Forms.CheckBox();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
+            this.checkBoxDIR2 = new System.Windows.Forms.CheckBox();
+            this.checkBoxDIR1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxDIR0 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox13 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -776,14 +776,14 @@ namespace Control_7155_10_04_450
             this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Controls.Add(this.label2);
             this.groupBox5.Controls.Add(this.label1);
-            this.groupBox5.Controls.Add(this.checkBox1);
-            this.groupBox5.Controls.Add(this.checkBox18);
+            this.groupBox5.Controls.Add(this.checkBoxINV2);
+            this.groupBox5.Controls.Add(this.checkBoxINV1);
             this.groupBox5.Controls.Add(this.checkBox12);
-            this.groupBox5.Controls.Add(this.checkBox17);
+            this.groupBox5.Controls.Add(this.checkBoxINV0);
             this.groupBox5.Controls.Add(this.checkBox11);
-            this.groupBox5.Controls.Add(this.checkBox16);
-            this.groupBox5.Controls.Add(this.checkBox15);
-            this.groupBox5.Controls.Add(this.checkBox14);
+            this.groupBox5.Controls.Add(this.checkBoxDIR2);
+            this.groupBox5.Controls.Add(this.checkBoxDIR1);
+            this.groupBox5.Controls.Add(this.checkBoxDIR0);
             this.groupBox5.Controls.Add(this.checkBox3);
             this.groupBox5.Controls.Add(this.checkBox13);
             this.groupBox5.Controls.Add(this.checkBox2);
@@ -965,31 +965,29 @@ namespace Control_7155_10_04_450
             this.label1.Text = "ERROR";
             this.label1.Visible = false;
             // 
-            // checkBox1
+            // checkBoxINV2
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Enabled = false;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox1.Location = new System.Drawing.Point(13, 401);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(119, 24);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "HOLDN - SN";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
+            this.checkBoxINV2.AutoSize = true;
+            this.checkBoxINV2.Enabled = false;
+            this.checkBoxINV2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxINV2.Location = new System.Drawing.Point(13, 401);
+            this.checkBoxINV2.Name = "checkBoxINV2";
+            this.checkBoxINV2.Size = new System.Drawing.Size(138, 24);
+            this.checkBoxINV2.TabIndex = 0;
+            this.checkBoxINV2.Text = "~INTP3 - INTP4";
+            this.checkBoxINV2.UseVisualStyleBackColor = true;
             // 
-            // checkBox18
+            // checkBoxINV1
             // 
-            this.checkBox18.AutoSize = true;
-            this.checkBox18.Enabled = false;
-            this.checkBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox18.Location = new System.Drawing.Point(13, 367);
-            this.checkBox18.Name = "checkBox18";
-            this.checkBox18.Size = new System.Drawing.Size(89, 24);
-            this.checkBox18.TabIndex = 0;
-            this.checkBox18.Text = "WN - SN";
-            this.checkBox18.UseVisualStyleBackColor = true;
-            this.checkBox18.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
+            this.checkBoxINV1.AutoSize = true;
+            this.checkBoxINV1.Enabled = false;
+            this.checkBoxINV1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxINV1.Location = new System.Drawing.Point(13, 333);
+            this.checkBoxINV1.Name = "checkBoxINV1";
+            this.checkBoxINV1.Size = new System.Drawing.Size(138, 24);
+            this.checkBoxINV1.TabIndex = 0;
+            this.checkBoxINV1.Text = "~INTP2 - INTP3";
+            this.checkBoxINV1.UseVisualStyleBackColor = true;
             // 
             // checkBox12
             // 
@@ -1004,18 +1002,17 @@ namespace Control_7155_10_04_450
             this.checkBox12.UseVisualStyleBackColor = true;
             this.checkBox12.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
-            // checkBox17
+            // checkBoxINV0
             // 
-            this.checkBox17.AutoSize = true;
-            this.checkBox17.Enabled = false;
-            this.checkBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox17.Location = new System.Drawing.Point(13, 333);
-            this.checkBox17.Name = "checkBox17";
-            this.checkBox17.Size = new System.Drawing.Size(95, 24);
-            this.checkBox17.TabIndex = 0;
-            this.checkBox17.Text = "SCK - SN";
-            this.checkBox17.UseVisualStyleBackColor = true;
-            this.checkBox17.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
+            this.checkBoxINV0.AutoSize = true;
+            this.checkBoxINV0.Enabled = false;
+            this.checkBoxINV0.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxINV0.Location = new System.Drawing.Point(13, 265);
+            this.checkBoxINV0.Name = "checkBoxINV0";
+            this.checkBoxINV0.Size = new System.Drawing.Size(138, 24);
+            this.checkBoxINV0.TabIndex = 0;
+            this.checkBoxINV0.Text = "~INTP0 - INTP1";
+            this.checkBoxINV0.UseVisualStyleBackColor = true;
             // 
             // checkBox11
             // 
@@ -1030,44 +1027,44 @@ namespace Control_7155_10_04_450
             this.checkBox11.UseVisualStyleBackColor = true;
             this.checkBox11.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
-            // checkBox16
+            // checkBoxDIR2
             // 
-            this.checkBox16.AutoSize = true;
-            this.checkBox16.Enabled = false;
-            this.checkBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox16.Location = new System.Drawing.Point(13, 299);
-            this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(129, 24);
-            this.checkBox16.TabIndex = 0;
-            this.checkBox16.Text = "INTP4 - INTP5";
-            this.checkBox16.UseVisualStyleBackColor = true;
-            this.checkBox16.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
+            this.checkBoxDIR2.AutoSize = true;
+            this.checkBoxDIR2.Enabled = false;
+            this.checkBoxDIR2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxDIR2.Location = new System.Drawing.Point(13, 367);
+            this.checkBoxDIR2.Name = "checkBoxDIR2";
+            this.checkBoxDIR2.Size = new System.Drawing.Size(129, 24);
+            this.checkBoxDIR2.TabIndex = 0;
+            this.checkBoxDIR2.Text = "INTP4 - INTP5";
+            this.checkBoxDIR2.UseVisualStyleBackColor = true;
+            this.checkBoxDIR2.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
-            // checkBox15
+            // checkBoxDIR1
             // 
-            this.checkBox15.AutoSize = true;
-            this.checkBox15.Enabled = false;
-            this.checkBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox15.Location = new System.Drawing.Point(13, 265);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(129, 24);
-            this.checkBox15.TabIndex = 0;
-            this.checkBox15.Text = "INTP2 - INTP3";
-            this.checkBox15.UseVisualStyleBackColor = true;
-            this.checkBox15.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
+            this.checkBoxDIR1.AutoSize = true;
+            this.checkBoxDIR1.Enabled = false;
+            this.checkBoxDIR1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxDIR1.Location = new System.Drawing.Point(13, 299);
+            this.checkBoxDIR1.Name = "checkBoxDIR1";
+            this.checkBoxDIR1.Size = new System.Drawing.Size(129, 24);
+            this.checkBoxDIR1.TabIndex = 0;
+            this.checkBoxDIR1.Text = "INTP2 - INTP3";
+            this.checkBoxDIR1.UseVisualStyleBackColor = true;
+            this.checkBoxDIR1.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
-            // checkBox14
+            // checkBoxDIR0
             // 
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.Enabled = false;
-            this.checkBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox14.Location = new System.Drawing.Point(13, 231);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(129, 24);
-            this.checkBox14.TabIndex = 0;
-            this.checkBox14.Text = "INTP0 - INTP1";
-            this.checkBox14.UseVisualStyleBackColor = true;
-            this.checkBox14.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
+            this.checkBoxDIR0.AutoSize = true;
+            this.checkBoxDIR0.Enabled = false;
+            this.checkBoxDIR0.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxDIR0.Location = new System.Drawing.Point(13, 231);
+            this.checkBoxDIR0.Name = "checkBoxDIR0";
+            this.checkBoxDIR0.Size = new System.Drawing.Size(129, 24);
+            this.checkBoxDIR0.TabIndex = 0;
+            this.checkBoxDIR0.Text = "INTP0 - INTP1";
+            this.checkBoxDIR0.UseVisualStyleBackColor = true;
+            this.checkBoxDIR0.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
             // checkBox3
             // 
@@ -1518,13 +1515,13 @@ namespace Control_7155_10_04_450
         private System.Windows.Forms.CheckBox checkBoxIO_TV7S;
         private System.Windows.Forms.CheckBox checkBoxIO_TV6S;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.CheckBox checkBox18;
+        private System.Windows.Forms.CheckBox checkBoxINV1;
         private System.Windows.Forms.CheckBox checkBox12;
-        private System.Windows.Forms.CheckBox checkBox17;
+        private System.Windows.Forms.CheckBox checkBoxINV0;
         private System.Windows.Forms.CheckBox checkBox11;
-        private System.Windows.Forms.CheckBox checkBox16;
-        private System.Windows.Forms.CheckBox checkBox15;
-        private System.Windows.Forms.CheckBox checkBox14;
+        private System.Windows.Forms.CheckBox checkBoxDIR2;
+        private System.Windows.Forms.CheckBox checkBoxDIR1;
+        private System.Windows.Forms.CheckBox checkBoxDIR0;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox13;
         private System.Windows.Forms.CheckBox checkBox2;
@@ -1542,7 +1539,7 @@ namespace Control_7155_10_04_450
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxINV2;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;

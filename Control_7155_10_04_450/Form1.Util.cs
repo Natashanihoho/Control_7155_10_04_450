@@ -16,8 +16,8 @@ namespace Control_7155_10_04_450
                                         checkBoxY4PA,  checkBoxY3PA, checkBoxY2PA, checkBoxY1PA, checkBoxUPR4B, checkBoxUPR3B, checkBoxUPR2B, checkBoxUPR1B, checkBoxPW_ENB,
                                         checkBoxCLK_ENB, checkBoxCLKPB, checkBoxY4PB, checkBoxY3PB, checkBoxY2PB, checkBoxY1PB, checkBoxDSPDP6, checkBoxDSPDP5, checkBoxDSPDP4,
                                         checkBoxDSPDP3, checkBoxDSPDP2, checkBoxDSPDP1, checkBoxDSPDOP4, checkBoxDSPDOP3, checkBoxDSPDOP2, checkBoxDSPDOP1, checkBoxIO_TV5S, checkBoxIO_TV3S,
-                                        checkBoxIO_TV4S, checkBoxIO_TV2S, checkBoxIO_TV1S, checkBoxIO_TV0S, checkBoxIO_TV7S, checkBoxIO_TV6S, checkBox1, checkBox18, checkBox12,
-                                        checkBox17, checkBox11, checkBox16, checkBox15, checkBox14, checkBox3, checkBox13, checkBox2, checkBoxTV2S_TV3S };
+                                        checkBoxIO_TV4S, checkBoxIO_TV2S, checkBoxIO_TV1S, checkBoxIO_TV0S, checkBoxIO_TV7S, checkBoxIO_TV6S,/* checkBoxINV2, checkBoxINV1,*/ checkBox12,
+                                        /*checkBoxINV0,*/ checkBox11, checkBoxDIR2, checkBoxDIR1, checkBoxDIR0, checkBox3, checkBox13, checkBox2, checkBoxTV2S_TV3S };
 
             List<RadioButton> radioButtons = new List<RadioButton>() { radioButtonDA10, radioButtonDA9, radioButtonDD2, radioButtonDD8, radioButtonDD9 };
 
@@ -60,8 +60,8 @@ namespace Control_7155_10_04_450
                                         checkBoxY4PA,  checkBoxY3PA, checkBoxY2PA, checkBoxY1PA, checkBoxUPR4B, checkBoxUPR3B, checkBoxUPR2B, checkBoxUPR1B, checkBoxPW_ENB,
                                         checkBoxCLK_ENB, checkBoxCLKPB, checkBoxY4PB, checkBoxY3PB, checkBoxY2PB, checkBoxY1PB, checkBoxDSPDP6, checkBoxDSPDP5, checkBoxDSPDP4,
                                         checkBoxDSPDP3, checkBoxDSPDP2, checkBoxDSPDP1, checkBoxDSPDOP4, checkBoxDSPDOP3, checkBoxDSPDOP2, checkBoxDSPDOP1, checkBoxIO_TV5S, checkBoxIO_TV3S,
-                                        checkBoxIO_TV4S, checkBoxIO_TV2S, checkBoxIO_TV1S, checkBoxIO_TV0S, checkBoxIO_TV7S, checkBoxIO_TV6S, checkBox1, checkBox18, checkBox12,
-                                        checkBox17, checkBox11, checkBox16, checkBox15, checkBox14, checkBox3, checkBox13, checkBox2, checkBoxTV2S_TV3S };
+                                        checkBoxIO_TV4S, checkBoxIO_TV2S, checkBoxIO_TV1S, checkBoxIO_TV0S, checkBoxIO_TV7S, checkBoxIO_TV6S, checkBoxINV2, checkBoxINV1, checkBox12,
+                                        checkBoxINV0, checkBox11, checkBoxDIR2, checkBoxDIR1, checkBoxDIR0, checkBox3, checkBox13, checkBox2, checkBoxTV2S_TV3S };
 
             checkBoxes.ForEach(n => n.Checked = false);
 
