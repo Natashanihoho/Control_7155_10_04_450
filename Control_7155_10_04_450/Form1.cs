@@ -196,7 +196,22 @@ namespace Control_7155_10_04_450
 
             }
 
-            switch(trackBar1.Value)
+           /* bt = packToSend[9];
+            if(bt != 0)
+            {
+                bt |= (1 << 6);
+                packToSend[9] = (byte)bt;
+            }
+
+            bt = packToSend[10];
+            if (bt != 0)
+            {
+                bt |= (1 << 6);
+                packToSend[10] = (byte)bt;
+            }*/
+
+
+            switch (trackBar1.Value)
             {
                 case 1: packToSend[11] |= (1 << 3); break;
                 case 2: packToSend[11] |= (1 << 4); break;
@@ -223,8 +238,10 @@ namespace Control_7155_10_04_450
 
                 packToSend[12] = (byte)bt;
             }
+
             
-            packToSend[TX_SIZE-1] = calcSumXor(packToSend, TX_SIZE-1);
+
+                packToSend[TX_SIZE-1] = calcSumXor(packToSend, TX_SIZE-1);
 
             return packToSend;
         }
