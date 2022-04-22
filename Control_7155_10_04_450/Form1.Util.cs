@@ -21,7 +21,7 @@ namespace Control_7155_10_04_450
 
             List<RadioButton> radioButtons = new List<RadioButton>() { radioButtonDA10, radioButtonDA9, radioButtonDD2, radioButtonDD8, radioButtonDD9 };
 
-            List<Button> buttons = new List<Button>() { buttonSend, buttonReset };
+            List<Button> buttons = new List<Button>() { buttonSend, buttonReset, buttonCheckChannel };
 
             List<GroupBox> groupBoxes = new List<GroupBox>() { groupBox1, groupBox2, groupBox3, groupBox4, groupBox5, groupBox6, groupBox8 };
 

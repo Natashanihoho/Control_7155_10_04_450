@@ -23,19 +23,20 @@ namespace Control_7155_10_04_450
         private const byte ZERO_BYTE_TX = 170;
         private const byte FIRST_BYTE_TX = 1;
 
-        private const byte RX_SIZE = 8;
+        private const byte RX_SIZE = 8; 
         private const byte TX_SIZE = 16;
 
         private const string OK_MESSAGE = "OK        ";
         private const string ERROR_MESSAGE = "ERROR";
 
-        private byte[] bufRx = new byte[RX_SIZE];
+        private byte[] bufRx = new byte[RX_SIZE + 8];
         private byte bytesCount = 0;
 
         private List<Signal> signals = new List<Signal>();
         private Dictionary<string, Label> map;
 
         private bool isCorrectRx = false;
+        private bool isCheckChannelMode = false;
 
         public Form1()
         {
@@ -137,24 +138,42 @@ namespace Control_7155_10_04_450
             }
         }
         private void setSignalsResponses(byte[] pack)
-        {            
-            checkBits(pack[2], 9);
-            checkBits(pack[3], 10);
-            if((int)(pack[4] & 0x01) == 0x01)
+        {
+            if(isCheckChannelMode)
             {
-                if(radioButtonDD2.Checked == true || radioButtonDD8.Checked == true || radioButtonDD9.Checked == true)
+                int bt = pack[13];
+                if (((bt >> 0) & 0x01) == 0x01)
                 {
-                    labelChip.BackColor = Color.GreenYellow;
-                    labelChip.ForeColor = Color.Black;
-                    labelChip.Text = OK_MESSAGE;
+                    buttonNot.BackColor = Color.GreenYellow;
+                    buttonNot.Text = "OK";
                 } 
                 else
                 {
-                    labelChip.BackColor = Color.Red;
-                    labelChip.ForeColor = Color.Black;
-                    labelChip.Text = ERROR_MESSAGE;
+                    buttonNot.BackColor = Color.Red;
+                    buttonNot.Text = "ERR";
                 }
             }
+            else
+            {
+                checkBits(pack[2], 9);
+                checkBits(pack[3], 10);
+                if ((int)(pack[4] & 0x01) == 0x01)
+                {
+                    if (radioButtonDD2.Checked == true || radioButtonDD8.Checked == true || radioButtonDD9.Checked == true)
+                    {
+                        labelChip.BackColor = Color.GreenYellow;
+                        labelChip.ForeColor = Color.Black;
+                        labelChip.Text = OK_MESSAGE;
+                    }
+                    else
+                    {
+                        labelChip.BackColor = Color.Red;
+                        labelChip.ForeColor = Color.Black;
+                        labelChip.Text = ERROR_MESSAGE;
+                    }
+                }
+            }
+           
         }
 
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
@@ -163,40 +182,80 @@ namespace Control_7155_10_04_450
             isCorrectRx = false;
             Array.Clear(bufRx, 0, bufRx.Length);
 
-            while(serialPort.BytesToRead > 0)
+            if (isCheckChannelMode)
             {
-                try
+                while (serialPort.BytesToRead > 0)
                 {
-                    bufRx[bytesCount] = (byte)serialPort.ReadByte();
-                    bytesCount++;
-
-                    switch (bytesCount)
+                    try
                     {
-                        case 1: if (bufRx[0] != ZERO_BYTE_RX) bytesCount = 0; break;
-                        case 2: if (bufRx[1] != FIRST_BYTE_RX) bytesCount = 0; break;
-                        case RX_SIZE:
-                            bytesCount = 0;
-                            if (calcSumXor(bufRx, RX_SIZE) == 0)
-                            {
-                                Console.WriteLine("RX: " + BitConverter.ToString(bufRx));
-                                isCorrectRx = true;
-                            }
-                            else
-                            {
-                                Console.WriteLine("RX: Invalid XOR sum");
-                            }                   
-                                                           
-                            break;
-                    }
-                }
-                catch (Exception err)
-                {
-                    MessageBox.Show(err.Message);
-                }
+                        bufRx[bytesCount] = (byte)serialPort.ReadByte();
+                        bytesCount++;
 
-                if (isCorrectRx)
-                    break;
+                        switch (bytesCount)
+                        {
+                            case 1: if (bufRx[0] != ZERO_BYTE_RX) bytesCount = 0; break;
+                            case 2: if (bufRx[1] != FIRST_BYTE_RX) bytesCount = 0; break;
+                            case RX_SIZE + 8:
+                                bytesCount = 0;
+                                if (calcSumXor(bufRx, RX_SIZE + 8) == 0)
+                                {
+                                    Console.WriteLine("RX: " + BitConverter.ToString(bufRx, 0, RX_SIZE + 8));
+                                    isCorrectRx = true;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("RX: Invalid XOR sum");
+                                }
+
+                                break;
+                        }
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show(err.Message);
+                    }
+
+                    if (isCorrectRx)
+                        break;
+                }
             }
+            else
+            {
+                while (serialPort.BytesToRead > 0)
+                {
+                    try
+                    {
+                        bufRx[bytesCount] = (byte)serialPort.ReadByte();
+                        bytesCount++;
+
+                        switch (bytesCount)
+                        {
+                            case 1: if (bufRx[0] != ZERO_BYTE_RX) bytesCount = 0; break;
+                            case 2: if (bufRx[1] != FIRST_BYTE_RX) bytesCount = 0; break;
+                            case RX_SIZE:
+                                bytesCount = 0;
+                                if (calcSumXor(bufRx, RX_SIZE) == 0)
+                                {
+                                    Console.WriteLine("RX: " + BitConverter.ToString(bufRx, 0, RX_SIZE));
+                                    isCorrectRx = true;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("RX: Invalid XOR sum");
+                                }
+
+                                break;
+                        }
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show(err.Message);
+                    }
+
+                    if (isCorrectRx)
+                        break;
+                }
+            }            
 
             if(isCorrectRx)
             {
@@ -229,24 +288,12 @@ namespace Control_7155_10_04_450
                     bt |= (1<<signal.BitNumber);
                 else
                     bt &= ~(1<<signal.BitNumber);
-                if (bt != 0) bt |= (1 << 6);    //ADDED
                 packToSend[signal.ByteNumber] = (byte)bt;
 
             }
 
-           /* bt = packToSend[9];
-            if(bt != 0)
-            {
-                bt |= (1 << 6);
-                packToSend[9] = (byte)bt;
-            }
-
-            bt = packToSend[10];
-            if (bt != 0)
-            {
-                bt |= (1 << 6);
-                packToSend[10] = (byte)bt;
-            }*/
+            if (packToSend[9] != 0) packToSend[9] |= (1 << 6);    //ADDED
+            if (packToSend[10] != 0) packToSend[10] |= (1 << 6);    //ADDED           
 
 
             switch (trackBar1.Value)
@@ -261,6 +308,8 @@ namespace Control_7155_10_04_450
                 case 8: packToSend[12] |= (1 << 2); break;
                 case 9: packToSend[11] |= (1 << 2); break;
             }
+
+            Console.WriteLine("trackBar1.Value: " + trackBar1.Value);
 
             bt = packToSend[12];
 
@@ -353,6 +402,34 @@ namespace Control_7155_10_04_450
         private void buttonReset_Click(object sender, EventArgs e)
         {
             resetAllElements();
+        }
+
+        private void buttonCheckChannel_Click(object sender, EventArgs e)
+        {
+            buttonNot.BackColor = Color.SlateGray;
+            isCheckChannelMode = true;
+            serialPort.PortName = comboBoxPorts.Text;
+            byte[] packToSend = new byte[TX_SIZE];
+
+            packToSend[0] = ZERO_BYTE_TX;
+            packToSend[1] = FIRST_BYTE_TX;
+            packToSend[13] = 1;
+            packToSend[TX_SIZE - 1] = calcSumXor(packToSend, TX_SIZE - 1);
+            serialPort.Open();
+            if (serialPort.IsOpen)
+            {
+                serialPort.Write(packToSend, 0, TX_SIZE);
+                Console.WriteLine("485RXA/485TXA channel checking:");
+                Console.WriteLine("TX: " + BitConverter.ToString(packToSend));
+                Thread.Sleep(500);
+                serialPort.Close();
+            }
+            isCheckChannelMode = false;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

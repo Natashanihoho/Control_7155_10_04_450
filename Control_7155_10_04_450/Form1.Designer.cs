@@ -125,6 +125,8 @@ namespace Control_7155_10_04_450
             this.radioButtonDD8 = new System.Windows.Forms.RadioButton();
             this.buttonReset = new System.Windows.Forms.Button();
             this.labelInit = new System.Windows.Forms.Label();
+            this.buttonCheckChannel = new System.Windows.Forms.Button();
+            this.buttonNot = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1124,9 +1126,9 @@ namespace Control_7155_10_04_450
             this.buttonSend.Enabled = false;
             this.buttonSend.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.buttonSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSend.Location = new System.Drawing.Point(555, 459);
+            this.buttonSend.Location = new System.Drawing.Point(621, 459);
             this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(281, 45);
+            this.buttonSend.Size = new System.Drawing.Size(215, 45);
             this.buttonSend.TabIndex = 3;
             this.buttonSend.Text = "SEND";
             this.buttonSend.UseVisualStyleBackColor = false;
@@ -1405,9 +1407,9 @@ namespace Control_7155_10_04_450
             // 
             this.buttonReset.BackColor = System.Drawing.Color.Silver;
             this.buttonReset.Enabled = false;
-            this.buttonReset.Location = new System.Drawing.Point(420, 477);
+            this.buttonReset.Location = new System.Drawing.Point(555, 459);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(120, 27);
+            this.buttonReset.Size = new System.Drawing.Size(60, 45);
             this.buttonReset.TabIndex = 6;
             this.buttonReset.Text = "Reset";
             this.buttonReset.UseVisualStyleBackColor = false;
@@ -1423,6 +1425,30 @@ namespace Control_7155_10_04_450
             this.labelInit.TabIndex = 7;
             this.labelInit.Text = "Select port";
             // 
+            // buttonCheckChannel
+            // 
+            this.buttonCheckChannel.Enabled = false;
+            this.buttonCheckChannel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonCheckChannel.Location = new System.Drawing.Point(420, 461);
+            this.buttonCheckChannel.Name = "buttonCheckChannel";
+            this.buttonCheckChannel.Size = new System.Drawing.Size(84, 44);
+            this.buttonCheckChannel.TabIndex = 8;
+            this.buttonCheckChannel.Text = "Check 485RXA/485TXA";
+            this.buttonCheckChannel.UseVisualStyleBackColor = true;
+            this.buttonCheckChannel.Click += new System.EventHandler(this.buttonCheckChannel_Click);
+            // 
+            // buttonNot
+            // 
+            this.buttonNot.BackColor = System.Drawing.Color.SlateGray;
+            this.buttonNot.Enabled = false;
+            this.buttonNot.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonNot.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonNot.Location = new System.Drawing.Point(506, 461);
+            this.buttonNot.Name = "buttonNot";
+            this.buttonNot.Size = new System.Drawing.Size(34, 44);
+            this.buttonNot.TabIndex = 9;
+            this.buttonNot.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1430,6 +1456,8 @@ namespace Control_7155_10_04_450
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(851, 515);
+            this.Controls.Add(this.buttonNot);
+            this.Controls.Add(this.buttonCheckChannel);
             this.Controls.Add(this.labelInit);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.groupBox8);
@@ -1444,6 +1472,7 @@ namespace Control_7155_10_04_450
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "7155.10.04.450";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1563,6 +1592,8 @@ namespace Control_7155_10_04_450
         private System.Windows.Forms.RadioButton radioButtonDD8;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Label labelInit;
+        private System.Windows.Forms.Button buttonCheckChannel;
+        private System.Windows.Forms.Button buttonNot;
     }
 }
 
