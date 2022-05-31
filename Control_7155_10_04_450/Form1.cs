@@ -36,7 +36,6 @@ namespace Control_7155_10_04_450
         private Dictionary<string, Label> map;
 
         private bool isCorrectRx = false;
-        private bool isCheckChannelMode = false;
 
         public Form1()
         {
@@ -163,7 +162,7 @@ namespace Control_7155_10_04_450
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             bytesCount = 0;
-            isCorrectRx = false;
+            //isCorrectRx = false;
             Array.Clear(bufRx, 0, bufRx.Length);
 
             
@@ -302,7 +301,10 @@ namespace Control_7155_10_04_450
         {
             resetLabels();
             String port = comboBoxPorts.Text;
+            isCorrectRx = false;   // ADDED 31.05.22
             sendData(port, createPacketToSend(signals));
+            if (!isCorrectRx) sendData(port, createPacketToSend(signals)); // ADDED 31.05.22
+            if (!isCorrectRx) MessageBox.Show("Error! No exchange!");
         }
 
         private void comboBoxPorts_SelectedIndexChanged(object sender, EventArgs e)
