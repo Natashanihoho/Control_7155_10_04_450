@@ -103,6 +103,7 @@ namespace Control_7155_10_04_450
             this.checkBoxTV2S_TV3S = new System.Windows.Forms.CheckBox();
             this.buttonSend = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.checkBoxDA9_DA10 = new System.Windows.Forms.CheckBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.radioButtonSawtooth = new System.Windows.Forms.RadioButton();
             this.radioButtonTV = new System.Windows.Forms.RadioButton();
@@ -126,7 +127,7 @@ namespace Control_7155_10_04_450
             this.buttonReset = new System.Windows.Forms.Button();
             this.labelInit = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.checkBoxDA9_DA10 = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -189,6 +190,7 @@ namespace Control_7155_10_04_450
             this.checkBoxUPR4A.Size = new System.Drawing.Size(82, 24);
             this.checkBoxUPR4A.TabIndex = 2;
             this.checkBoxUPR4A.Text = "UPR4A";
+            this.toolTip1.SetToolTip(this.checkBoxUPR4A, "(DD1.16 – X1.8),   (49Hz)");
             this.checkBoxUPR4A.UseVisualStyleBackColor = true;
             this.checkBoxUPR4A.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -202,6 +204,7 @@ namespace Control_7155_10_04_450
             this.checkBoxUPR3A.Size = new System.Drawing.Size(82, 24);
             this.checkBoxUPR3A.TabIndex = 2;
             this.checkBoxUPR3A.Text = "UPR3A";
+            this.toolTip1.SetToolTip(this.checkBoxUPR3A, "(DD1.17 – X1.11), (97Hz)");
             this.checkBoxUPR3A.UseVisualStyleBackColor = true;
             this.checkBoxUPR3A.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -215,6 +218,7 @@ namespace Control_7155_10_04_450
             this.checkBoxUPR2A.Size = new System.Drawing.Size(82, 24);
             this.checkBoxUPR2A.TabIndex = 2;
             this.checkBoxUPR2A.Text = "UPR2A";
+            this.toolTip1.SetToolTip(this.checkBoxUPR2A, "(DD1.18 – X1.14), (195Hz)");
             this.checkBoxUPR2A.UseVisualStyleBackColor = true;
             this.checkBoxUPR2A.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -228,6 +232,7 @@ namespace Control_7155_10_04_450
             this.checkBoxUPR1A.Size = new System.Drawing.Size(82, 24);
             this.checkBoxUPR1A.TabIndex = 2;
             this.checkBoxUPR1A.Text = "UPR1A";
+            this.toolTip1.SetToolTip(this.checkBoxUPR1A, "(DD1.19 – X1.18), (390Hz)");
             this.checkBoxUPR1A.UseVisualStyleBackColor = true;
             this.checkBoxUPR1A.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -241,6 +246,7 @@ namespace Control_7155_10_04_450
             this.checkBoxPW_ENA.Size = new System.Drawing.Size(95, 24);
             this.checkBoxPW_ENA.TabIndex = 2;
             this.checkBoxPW_ENA.Text = "PW_ENA";
+            this.toolTip1.SetToolTip(this.checkBoxPW_ENA, "(DD1.14 – X1.2), (781Hz)");
             this.checkBoxPW_ENA.UseVisualStyleBackColor = true;
             this.checkBoxPW_ENA.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -254,6 +260,7 @@ namespace Control_7155_10_04_450
             this.checkBoxCLK_ENA.Size = new System.Drawing.Size(100, 24);
             this.checkBoxCLK_ENA.TabIndex = 2;
             this.checkBoxCLK_ENA.Text = "CLK_ENA";
+            this.toolTip1.SetToolTip(this.checkBoxCLK_ENA, "(DD1.15 – X1.5), (1.56kHz)*");
             this.checkBoxCLK_ENA.UseVisualStyleBackColor = true;
             this.checkBoxCLK_ENA.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -267,6 +274,7 @@ namespace Control_7155_10_04_450
             this.checkBoxCLKPA.Size = new System.Drawing.Size(79, 24);
             this.checkBoxCLKPA.TabIndex = 2;
             this.checkBoxCLKPA.Text = "CLKPA";
+            this.toolTip1.SetToolTip(this.checkBoxCLKPA, "(DD4.83 – X1.23), ~ CLKMA (DD4.82 – X1.24), (3.125kHz)");
             this.checkBoxCLKPA.UseVisualStyleBackColor = true;
             this.checkBoxCLKPA.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -280,6 +288,7 @@ namespace Control_7155_10_04_450
             this.checkBoxY4PA.Size = new System.Drawing.Size(69, 24);
             this.checkBoxY4PA.TabIndex = 2;
             this.checkBoxY4PA.Text = "Y4PA";
+            this.toolTip1.SetToolTip(this.checkBoxY4PA, "(DD4.85 – X1.20), ~ Y4MA (DD4.84 – X1.21), (6.25kHz)");
             this.checkBoxY4PA.UseVisualStyleBackColor = true;
             this.checkBoxY4PA.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -293,6 +302,7 @@ namespace Control_7155_10_04_450
             this.checkBoxY3PA.Size = new System.Drawing.Size(69, 24);
             this.checkBoxY3PA.TabIndex = 2;
             this.checkBoxY3PA.Text = "Y3PA";
+            this.toolTip1.SetToolTip(this.checkBoxY3PA, "(DD4.80 – X1.26), ~ Y3MA (DD4.79 – X1.27), (12.5kHz)");
             this.checkBoxY3PA.UseVisualStyleBackColor = true;
             this.checkBoxY3PA.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -306,6 +316,7 @@ namespace Control_7155_10_04_450
             this.checkBoxY2PA.Size = new System.Drawing.Size(69, 24);
             this.checkBoxY2PA.TabIndex = 2;
             this.checkBoxY2PA.Text = "Y2PA";
+            this.toolTip1.SetToolTip(this.checkBoxY2PA, "(DD4.78 – X1.29), ~ Y2MA (DD4.77 – X1.30), (25kHz)");
             this.checkBoxY2PA.UseVisualStyleBackColor = true;
             this.checkBoxY2PA.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -319,6 +330,7 @@ namespace Control_7155_10_04_450
             this.checkBoxY1PA.Size = new System.Drawing.Size(69, 24);
             this.checkBoxY1PA.TabIndex = 2;
             this.checkBoxY1PA.Text = "Y1PA";
+            this.toolTip1.SetToolTip(this.checkBoxY1PA, "(DD4.74 – X1.32), ~ Y1MA (DD4.73 – X1.33), (50kHz)*");
             this.checkBoxY1PA.UseVisualStyleBackColor = true;
             this.checkBoxY1PA.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -355,6 +367,7 @@ namespace Control_7155_10_04_450
             this.checkBoxUPR4B.Size = new System.Drawing.Size(82, 24);
             this.checkBoxUPR4B.TabIndex = 2;
             this.checkBoxUPR4B.Text = "UPR4B";
+            this.toolTip1.SetToolTip(this.checkBoxUPR4B, "(DD1.37 – X5.8),   (49Hz)");
             this.checkBoxUPR4B.UseVisualStyleBackColor = true;
             this.checkBoxUPR4B.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -368,6 +381,7 @@ namespace Control_7155_10_04_450
             this.checkBoxUPR3B.Size = new System.Drawing.Size(82, 24);
             this.checkBoxUPR3B.TabIndex = 2;
             this.checkBoxUPR3B.Text = "UPR3B";
+            this.toolTip1.SetToolTip(this.checkBoxUPR3B, "(DD1.36 – X5.11), (97Hz)");
             this.checkBoxUPR3B.UseVisualStyleBackColor = true;
             this.checkBoxUPR3B.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -381,6 +395,7 @@ namespace Control_7155_10_04_450
             this.checkBoxUPR2B.Size = new System.Drawing.Size(82, 24);
             this.checkBoxUPR2B.TabIndex = 2;
             this.checkBoxUPR2B.Text = "UPR2B";
+            this.toolTip1.SetToolTip(this.checkBoxUPR2B, "(DD1.35 – X5.14), (195Hz)");
             this.checkBoxUPR2B.UseVisualStyleBackColor = true;
             this.checkBoxUPR2B.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -394,6 +409,7 @@ namespace Control_7155_10_04_450
             this.checkBoxUPR1B.Size = new System.Drawing.Size(82, 24);
             this.checkBoxUPR1B.TabIndex = 2;
             this.checkBoxUPR1B.Text = "UPR1B";
+            this.toolTip1.SetToolTip(this.checkBoxUPR1B, "(DD1.34 – X5.18), (390Hz)");
             this.checkBoxUPR1B.UseVisualStyleBackColor = true;
             this.checkBoxUPR1B.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -407,6 +423,7 @@ namespace Control_7155_10_04_450
             this.checkBoxPW_ENB.Size = new System.Drawing.Size(95, 24);
             this.checkBoxPW_ENB.TabIndex = 2;
             this.checkBoxPW_ENB.Text = "PW_ENB";
+            this.toolTip1.SetToolTip(this.checkBoxPW_ENB, "(DD1.32 – X5.2),  (781Hz)");
             this.checkBoxPW_ENB.UseVisualStyleBackColor = true;
             this.checkBoxPW_ENB.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -420,6 +437,7 @@ namespace Control_7155_10_04_450
             this.checkBoxCLK_ENB.Size = new System.Drawing.Size(100, 24);
             this.checkBoxCLK_ENB.TabIndex = 2;
             this.checkBoxCLK_ENB.Text = "CLK_ENB";
+            this.toolTip1.SetToolTip(this.checkBoxCLK_ENB, "(DD1.33 – X5.5),  (1.56kHz)*");
             this.checkBoxCLK_ENB.UseVisualStyleBackColor = true;
             this.checkBoxCLK_ENB.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -433,6 +451,7 @@ namespace Control_7155_10_04_450
             this.checkBoxCLKPB.Size = new System.Drawing.Size(79, 24);
             this.checkBoxCLKPB.TabIndex = 2;
             this.checkBoxCLKPB.Text = "CLKPB";
+            this.toolTip1.SetToolTip(this.checkBoxCLKPB, "(DD4.13 – X5.23), ~ CLKMB (DD4.12 – X5.24), (3.125kHz)");
             this.checkBoxCLKPB.UseVisualStyleBackColor = true;
             this.checkBoxCLKPB.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -446,6 +465,7 @@ namespace Control_7155_10_04_450
             this.checkBoxY4PB.Size = new System.Drawing.Size(69, 24);
             this.checkBoxY4PB.TabIndex = 2;
             this.checkBoxY4PB.Text = "Y4PB";
+            this.toolTip1.SetToolTip(this.checkBoxY4PB, "(DD4.15 – X5.20), ~ Y4MB (DD4.14 – X5.21), (6.25kHz)");
             this.checkBoxY4PB.UseVisualStyleBackColor = true;
             this.checkBoxY4PB.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -459,6 +479,7 @@ namespace Control_7155_10_04_450
             this.checkBoxY3PB.Size = new System.Drawing.Size(69, 24);
             this.checkBoxY3PB.TabIndex = 2;
             this.checkBoxY3PB.Text = "Y3PB";
+            this.toolTip1.SetToolTip(this.checkBoxY3PB, "(DD4.11 – X5.26), ~ Y3MB (DD4.10 – X5.27), (12.5kHz)");
             this.checkBoxY3PB.UseVisualStyleBackColor = true;
             this.checkBoxY3PB.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -472,6 +493,7 @@ namespace Control_7155_10_04_450
             this.checkBoxY2PB.Size = new System.Drawing.Size(69, 24);
             this.checkBoxY2PB.TabIndex = 2;
             this.checkBoxY2PB.Text = "Y2PB";
+            this.toolTip1.SetToolTip(this.checkBoxY2PB, "(DD4.8   – X5.29), ~ Y2MB (DD4.7 –  X5.30),  (25kHz)");
             this.checkBoxY2PB.UseVisualStyleBackColor = true;
             this.checkBoxY2PB.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -485,6 +507,7 @@ namespace Control_7155_10_04_450
             this.checkBoxY1PB.Size = new System.Drawing.Size(69, 24);
             this.checkBoxY1PB.TabIndex = 2;
             this.checkBoxY1PB.Text = "Y1PB";
+            this.toolTip1.SetToolTip(this.checkBoxY1PB, "(DD4.6   – X5.32), ~ Y1MB (DD4.5 –  X5.33),  (50kHz)*");
             this.checkBoxY1PB.UseVisualStyleBackColor = true;
             this.checkBoxY1PB.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -520,6 +543,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDSPDP6.Size = new System.Drawing.Size(92, 24);
             this.checkBoxDSPDP6.TabIndex = 2;
             this.checkBoxDSPDP6.Text = "DSPDP6";
+            this.toolTip1.SetToolTip(this.checkBoxDSPDP6, "(DD4.137 – X2.33), ~ DSPDN6(DD4.135 – X2.32), (97Hz)");
             this.checkBoxDSPDP6.UseVisualStyleBackColor = true;
             this.checkBoxDSPDP6.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -533,6 +557,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDSPDP5.Size = new System.Drawing.Size(92, 24);
             this.checkBoxDSPDP5.TabIndex = 2;
             this.checkBoxDSPDP5.Text = "DSPDP5";
+            this.toolTip1.SetToolTip(this.checkBoxDSPDP5, "(DD4.130 – X2.29), ~ DSPDN5(DD4.129 – X2.28), (195Hz)");
             this.checkBoxDSPDP5.UseVisualStyleBackColor = true;
             this.checkBoxDSPDP5.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -546,6 +571,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDSPDP4.Size = new System.Drawing.Size(92, 24);
             this.checkBoxDSPDP4.TabIndex = 2;
             this.checkBoxDSPDP4.Text = "DSPDP4";
+            this.toolTip1.SetToolTip(this.checkBoxDSPDP4, "(DD4.124 – X2.23), ~ DSPDN4(DD4.125 – X2.24), (390Hz)");
             this.checkBoxDSPDP4.UseVisualStyleBackColor = true;
             this.checkBoxDSPDP4.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -559,6 +585,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDSPDP3.Size = new System.Drawing.Size(92, 24);
             this.checkBoxDSPDP3.TabIndex = 2;
             this.checkBoxDSPDP3.Text = "DSPDP3";
+            this.toolTip1.SetToolTip(this.checkBoxDSPDP3, "(DD4.118 – X2.19), ~DSPDN3(DD4.119 – X2.20), (781Hz)");
             this.checkBoxDSPDP3.UseVisualStyleBackColor = true;
             this.checkBoxDSPDP3.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -572,6 +599,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDSPDP2.Size = new System.Drawing.Size(92, 24);
             this.checkBoxDSPDP2.TabIndex = 2;
             this.checkBoxDSPDP2.Text = "DSPDP2";
+            this.toolTip1.SetToolTip(this.checkBoxDSPDP2, "(DD4.132 – X2.14), ~DSPDN2(DD4.131 – X2.13), (1.56kHz)");
             this.checkBoxDSPDP2.UseVisualStyleBackColor = true;
             this.checkBoxDSPDP2.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -585,6 +613,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDSPDP1.Size = new System.Drawing.Size(92, 24);
             this.checkBoxDSPDP1.TabIndex = 2;
             this.checkBoxDSPDP1.Text = "DSPDP1";
+            this.toolTip1.SetToolTip(this.checkBoxDSPDP1, "(DD4.122 – X2.4), ~DSPDN1(DD4.123 – X2.5), (3.125kHz);");
             this.checkBoxDSPDP1.UseVisualStyleBackColor = true;
             this.checkBoxDSPDP1.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -598,6 +627,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDSPDOP4.Size = new System.Drawing.Size(104, 24);
             this.checkBoxDSPDOP4.TabIndex = 2;
             this.checkBoxDSPDOP4.Text = "DSPDOP4";
+            this.toolTip1.SetToolTip(this.checkBoxDSPDOP4, "DSPDOP4 (DD3.35 – X2.10), (6.25kHz)*");
             this.checkBoxDSPDOP4.UseVisualStyleBackColor = true;
             this.checkBoxDSPDOP4.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -611,6 +641,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDSPDOP3.Size = new System.Drawing.Size(104, 24);
             this.checkBoxDSPDOP3.TabIndex = 2;
             this.checkBoxDSPDOP3.Text = "DSPDOP3";
+            this.toolTip1.SetToolTip(this.checkBoxDSPDOP3, "DSPDOP3 (DD3.36 – X2.8), (12.5kHz)");
             this.checkBoxDSPDOP3.UseVisualStyleBackColor = true;
             this.checkBoxDSPDOP3.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -624,6 +655,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDSPDOP2.Size = new System.Drawing.Size(104, 24);
             this.checkBoxDSPDOP2.TabIndex = 2;
             this.checkBoxDSPDOP2.Text = "DSPDOP2";
+            this.toolTip1.SetToolTip(this.checkBoxDSPDOP2, "(DD3.32 – X2.17), (25kHz)");
             this.checkBoxDSPDOP2.UseVisualStyleBackColor = true;
             this.checkBoxDSPDOP2.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -637,6 +669,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDSPDOP1.Size = new System.Drawing.Size(104, 24);
             this.checkBoxDSPDOP1.TabIndex = 2;
             this.checkBoxDSPDOP1.Text = "DSPDOP1";
+            this.toolTip1.SetToolTip(this.checkBoxDSPDOP1, "(DD3.31 – X2.1),  (50kHz)*");
             this.checkBoxDSPDOP1.UseVisualStyleBackColor = true;
             this.checkBoxDSPDOP1.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -670,6 +703,7 @@ namespace Control_7155_10_04_450
             this.checkBoxIO_TV5S.Size = new System.Drawing.Size(98, 24);
             this.checkBoxIO_TV5S.TabIndex = 2;
             this.checkBoxIO_TV5S.Text = "I/O_TV5S";
+            this.toolTip1.SetToolTip(this.checkBoxIO_TV5S, "(DD1.66 – 30.1),(1.56kHz)");
             this.checkBoxIO_TV5S.UseVisualStyleBackColor = true;
             this.checkBoxIO_TV5S.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -683,6 +717,7 @@ namespace Control_7155_10_04_450
             this.checkBoxIO_TV3S.Size = new System.Drawing.Size(98, 24);
             this.checkBoxIO_TV3S.TabIndex = 2;
             this.checkBoxIO_TV3S.Text = "I/O_TV3S";
+            this.toolTip1.SetToolTip(this.checkBoxIO_TV3S, "(DD4.76 – 17.1), (6.25kHz)");
             this.checkBoxIO_TV3S.UseVisualStyleBackColor = true;
             this.checkBoxIO_TV3S.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -696,6 +731,7 @@ namespace Control_7155_10_04_450
             this.checkBoxIO_TV4S.Size = new System.Drawing.Size(98, 24);
             this.checkBoxIO_TV4S.TabIndex = 2;
             this.checkBoxIO_TV4S.Text = "I/O_TV4S";
+            this.toolTip1.SetToolTip(this.checkBoxIO_TV4S, "(DD1.65 – 31.1), (3.125kHz)");
             this.checkBoxIO_TV4S.UseVisualStyleBackColor = true;
             this.checkBoxIO_TV4S.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -709,6 +745,7 @@ namespace Control_7155_10_04_450
             this.checkBoxIO_TV2S.Size = new System.Drawing.Size(98, 24);
             this.checkBoxIO_TV2S.TabIndex = 2;
             this.checkBoxIO_TV2S.Text = "I/O_TV2S";
+            this.toolTip1.SetToolTip(this.checkBoxIO_TV2S, "(DD4.86 – 16.1), (12.5kHz)");
             this.checkBoxIO_TV2S.UseVisualStyleBackColor = true;
             this.checkBoxIO_TV2S.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -722,6 +759,7 @@ namespace Control_7155_10_04_450
             this.checkBoxIO_TV1S.Size = new System.Drawing.Size(98, 24);
             this.checkBoxIO_TV1S.TabIndex = 2;
             this.checkBoxIO_TV1S.Text = "I/O_TV1S";
+            this.toolTip1.SetToolTip(this.checkBoxIO_TV1S, "(DD4.87 – 15.1), (25kHz)");
             this.checkBoxIO_TV1S.UseVisualStyleBackColor = true;
             this.checkBoxIO_TV1S.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -735,6 +773,7 @@ namespace Control_7155_10_04_450
             this.checkBoxIO_TV0S.Size = new System.Drawing.Size(98, 24);
             this.checkBoxIO_TV0S.TabIndex = 2;
             this.checkBoxIO_TV0S.Text = "I/O_TV0S";
+            this.toolTip1.SetToolTip(this.checkBoxIO_TV0S, "(DD4.89 – 14.1), (50kHz)");
             this.checkBoxIO_TV0S.UseVisualStyleBackColor = true;
             this.checkBoxIO_TV0S.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -748,6 +787,7 @@ namespace Control_7155_10_04_450
             this.checkBoxIO_TV7S.Size = new System.Drawing.Size(98, 24);
             this.checkBoxIO_TV7S.TabIndex = 2;
             this.checkBoxIO_TV7S.Text = "I/O_TV7S";
+            this.toolTip1.SetToolTip(this.checkBoxIO_TV7S, "(DD1.41 – 33.1), (390Hz)");
             this.checkBoxIO_TV7S.UseVisualStyleBackColor = true;
             this.checkBoxIO_TV7S.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -761,6 +801,7 @@ namespace Control_7155_10_04_450
             this.checkBoxIO_TV6S.Size = new System.Drawing.Size(98, 24);
             this.checkBoxIO_TV6S.TabIndex = 2;
             this.checkBoxIO_TV6S.Text = "I/O_TV6S";
+            this.toolTip1.SetToolTip(this.checkBoxIO_TV6S, "(DD1.40 – 32.1), (781Hz)");
             this.checkBoxIO_TV6S.UseVisualStyleBackColor = true;
             this.checkBoxIO_TV6S.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -978,6 +1019,7 @@ namespace Control_7155_10_04_450
             this.checkBoxINV2.Size = new System.Drawing.Size(138, 24);
             this.checkBoxINV2.TabIndex = 0;
             this.checkBoxINV2.Text = "~INTP3 - INTP4";
+            this.toolTip1.SetToolTip(this.checkBoxINV2, "(DD4.46-DD3.56-DD3.60-DD4.40)");
             this.checkBoxINV2.UseVisualStyleBackColor = true;
             // 
             // checkBoxINV1
@@ -990,6 +1032,7 @@ namespace Control_7155_10_04_450
             this.checkBoxINV1.Size = new System.Drawing.Size(138, 24);
             this.checkBoxINV1.TabIndex = 0;
             this.checkBoxINV1.Text = "~INTP2 - INTP3";
+            this.toolTip1.SetToolTip(this.checkBoxINV1, "(DD4.52-DD3.51-DD3.53-DD4.50)");
             this.checkBoxINV1.UseVisualStyleBackColor = true;
             // 
             // checkBox12
@@ -1002,6 +1045,7 @@ namespace Control_7155_10_04_450
             this.checkBox12.Size = new System.Drawing.Size(154, 24);
             this.checkBox12.TabIndex = 0;
             this.checkBox12.Text = "CS_MD - CS_MG";
+            this.toolTip1.SetToolTip(this.checkBox12, "(DD4.24 –  DD1.94 – DD1.97 – DD4.20)");
             this.checkBox12.UseVisualStyleBackColor = true;
             this.checkBox12.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -1015,6 +1059,7 @@ namespace Control_7155_10_04_450
             this.checkBoxINV0.Size = new System.Drawing.Size(138, 24);
             this.checkBoxINV0.TabIndex = 0;
             this.checkBoxINV0.Text = "~INTP0 - INTP1";
+            this.toolTip1.SetToolTip(this.checkBoxINV0, "(DD4.59-DD3.41-DD3.47-DD4.55)");
             this.checkBoxINV0.UseVisualStyleBackColor = true;
             // 
             // checkBox11
@@ -1027,6 +1072,7 @@ namespace Control_7155_10_04_450
             this.checkBox11.Size = new System.Drawing.Size(151, 24);
             this.checkBox11.TabIndex = 0;
             this.checkBox11.Text = "CS_MC - CS_MN";
+            this.toolTip1.SetToolTip(this.checkBox11, "(DD4.25 –  DD1.93 – DD1.90 – DD4.28)");
             this.checkBox11.UseVisualStyleBackColor = true;
             this.checkBox11.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -1040,6 +1086,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDIR2.Size = new System.Drawing.Size(129, 24);
             this.checkBoxDIR2.TabIndex = 0;
             this.checkBoxDIR2.Text = "INTP4 - INTP5";
+            this.toolTip1.SetToolTip(this.checkBoxDIR2, "(DD4.47-DD3.55-DD3.59-DD4.41)");
             this.checkBoxDIR2.UseVisualStyleBackColor = true;
             this.checkBoxDIR2.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -1053,6 +1100,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDIR1.Size = new System.Drawing.Size(129, 24);
             this.checkBoxDIR1.TabIndex = 0;
             this.checkBoxDIR1.Text = "INTP2 - INTP3";
+            this.toolTip1.SetToolTip(this.checkBoxDIR1, "(DD4.53-DD3.50-DD3.52-DD4.51)");
             this.checkBoxDIR1.UseVisualStyleBackColor = true;
             this.checkBoxDIR1.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -1066,6 +1114,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDIR0.Size = new System.Drawing.Size(129, 24);
             this.checkBoxDIR0.TabIndex = 0;
             this.checkBoxDIR0.Text = "INTP0 - INTP1";
+            this.toolTip1.SetToolTip(this.checkBoxDIR0, "(DD4.60-DD3.40-DD3.46-DD4.56)");
             this.checkBoxDIR0.UseVisualStyleBackColor = true;
             this.checkBoxDIR0.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -1079,6 +1128,7 @@ namespace Control_7155_10_04_450
             this.checkBox3.Size = new System.Drawing.Size(150, 24);
             this.checkBox3.TabIndex = 0;
             this.checkBox3.Text = "CS_MB - CS_MF";
+            this.toolTip1.SetToolTip(this.checkBox3, "(DD4.26 –  DD1.92 – DD1.96 – DD4.21)");
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -1092,6 +1142,7 @@ namespace Control_7155_10_04_450
             this.checkBox13.Size = new System.Drawing.Size(177, 24);
             this.checkBox13.TabIndex = 0;
             this.checkBox13.Text = "INTDOP1 - INTDOP2";
+            this.toolTip1.SetToolTip(this.checkBox13, "(DD4.63 – DD3.63 – DD3.44 – DD4.44)");
             this.checkBox13.UseVisualStyleBackColor = true;
             this.checkBox13.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -1105,6 +1156,7 @@ namespace Control_7155_10_04_450
             this.checkBox2.Size = new System.Drawing.Size(151, 24);
             this.checkBox2.TabIndex = 0;
             this.checkBox2.Text = "CS_MA - CS_ME";
+            this.toolTip1.SetToolTip(this.checkBox2, "(DD4.27 –  DD1.91 – DD1.95 – DD4.23)");
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -1118,6 +1170,7 @@ namespace Control_7155_10_04_450
             this.checkBoxTV2S_TV3S.Size = new System.Drawing.Size(121, 24);
             this.checkBoxTV2S_TV3S.TabIndex = 0;
             this.checkBoxTV2S_TV3S.Text = "TV2S - TV3S";
+            this.toolTip1.SetToolTip(this.checkBoxTV2S_TV3S, "(DD4.86 –  DD1.11 – DD1.10 – DD4.76)");
             this.checkBoxTV2S_TV3S.UseVisualStyleBackColor = true;
             this.checkBoxTV2S_TV3S.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -1159,6 +1212,19 @@ namespace Control_7155_10_04_450
             this.groupBox6.TabIndex = 4;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "DAC checking";
+            // 
+            // checkBoxDA9_DA10
+            // 
+            this.checkBoxDA9_DA10.AutoSize = true;
+            this.checkBoxDA9_DA10.Enabled = false;
+            this.checkBoxDA9_DA10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxDA9_DA10.Location = new System.Drawing.Point(15, 22);
+            this.checkBoxDA9_DA10.Name = "checkBoxDA9_DA10";
+            this.checkBoxDA9_DA10.Size = new System.Drawing.Size(109, 24);
+            this.checkBoxDA9_DA10.TabIndex = 2;
+            this.checkBoxDA9_DA10.Text = "DA9, DA10";
+            this.checkBoxDA9_DA10.UseVisualStyleBackColor = true;
+            this.checkBoxDA9_DA10.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
             // groupBox7
             // 
@@ -1435,19 +1501,6 @@ namespace Control_7155_10_04_450
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // checkBoxDA9_DA10
-            // 
-            this.checkBoxDA9_DA10.AutoSize = true;
-            this.checkBoxDA9_DA10.Enabled = false;
-            this.checkBoxDA9_DA10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBoxDA9_DA10.Location = new System.Drawing.Point(15, 22);
-            this.checkBoxDA9_DA10.Name = "checkBoxDA9_DA10";
-            this.checkBoxDA9_DA10.Size = new System.Drawing.Size(109, 24);
-            this.checkBoxDA9_DA10.TabIndex = 2;
-            this.checkBoxDA9_DA10.Text = "DA9, DA10";
-            this.checkBoxDA9_DA10.UseVisualStyleBackColor = true;
-            this.checkBoxDA9_DA10.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1593,6 +1646,7 @@ namespace Control_7155_10_04_450
         private System.Windows.Forms.Label labelInit;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox checkBoxDA9_DA10;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
