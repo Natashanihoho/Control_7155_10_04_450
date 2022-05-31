@@ -17,11 +17,11 @@ namespace Control_7155_10_04_450
                                         checkBoxCLK_ENB, checkBoxCLKPB, checkBoxY4PB, checkBoxY3PB, checkBoxY2PB, checkBoxY1PB, checkBoxDSPDP6, checkBoxDSPDP5, checkBoxDSPDP4,
                                         checkBoxDSPDP3, checkBoxDSPDP2, checkBoxDSPDP1, checkBoxDSPDOP4, checkBoxDSPDOP3, checkBoxDSPDOP2, checkBoxDSPDOP1, checkBoxIO_TV5S, checkBoxIO_TV3S,
                                         checkBoxIO_TV4S, checkBoxIO_TV2S, checkBoxIO_TV1S, checkBoxIO_TV0S, checkBoxIO_TV7S, checkBoxIO_TV6S,/* checkBoxINV2, checkBoxINV1,*/ checkBox12,
-                                        /*checkBoxINV0,*/ checkBox11, checkBoxDIR2, checkBoxDIR1, checkBoxDIR0, checkBox3, checkBox13, checkBox2, checkBoxTV2S_TV3S };
+                                        /*checkBoxINV0,*/ checkBox11, checkBoxDIR2, checkBoxDIR1, checkBoxDIR0, checkBox3, checkBox13, checkBox2, checkBoxTV2S_TV3S, checkBoxDA9_DA10 };
 
-            List<RadioButton> radioButtons = new List<RadioButton>() { radioButtonDA10, radioButtonDA9, radioButtonDD2, radioButtonDD8, radioButtonDD9 };
+            List<RadioButton> radioButtons = new List<RadioButton>() { radioButtonDD2, radioButtonDD8, radioButtonDD9 };
 
-            List<Button> buttons = new List<Button>() { buttonSend, buttonReset, buttonCheckChannel };
+            List<Button> buttons = new List<Button>() { buttonSend, buttonReset };
 
             List<GroupBox> groupBoxes = new List<GroupBox>() { groupBox1, groupBox2, groupBox3, groupBox4, groupBox5, groupBox6, groupBox8 };
 
@@ -61,7 +61,7 @@ namespace Control_7155_10_04_450
                                         checkBoxCLK_ENB, checkBoxCLKPB, checkBoxY4PB, checkBoxY3PB, checkBoxY2PB, checkBoxY1PB, checkBoxDSPDP6, checkBoxDSPDP5, checkBoxDSPDP4,
                                         checkBoxDSPDP3, checkBoxDSPDP2, checkBoxDSPDP1, checkBoxDSPDOP4, checkBoxDSPDOP3, checkBoxDSPDOP2, checkBoxDSPDOP1, checkBoxIO_TV5S, checkBoxIO_TV3S,
                                         checkBoxIO_TV4S, checkBoxIO_TV2S, checkBoxIO_TV1S, checkBoxIO_TV0S, checkBoxIO_TV7S, checkBoxIO_TV6S, checkBoxINV2, checkBoxINV1, checkBox12,
-                                        checkBoxINV0, checkBox11, checkBoxDIR2, checkBoxDIR1, checkBoxDIR0, checkBox3, checkBox13, checkBox2, checkBoxTV2S_TV3S };
+                                        checkBoxINV0, checkBox11, checkBoxDIR2, checkBoxDIR1, checkBoxDIR0, checkBox3, checkBox13, checkBox2, checkBoxTV2S_TV3S, checkBoxDA9_DA10 };
 
             checkBoxes.ForEach(n => n.Checked = false);
 
@@ -69,7 +69,7 @@ namespace Control_7155_10_04_450
 
         private void resetRadioButtons()
         {
-            List<RadioButton> radioButtons = new List<RadioButton>() { radioButtonDA10, radioButtonDA9, radioButtonDD2, radioButtonDD8, radioButtonDD9 };
+            List<RadioButton> radioButtons = new List<RadioButton>() { radioButtonSawtooth, radioButtonTV, radioButtonDD2, radioButtonDD8, radioButtonDD9 };
             radioButtons.ForEach(n => n.Checked = false);
             comboBox1.Enabled = false;
             comboBox1.SelectedItem = null;

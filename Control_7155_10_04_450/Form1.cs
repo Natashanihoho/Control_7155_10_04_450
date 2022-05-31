@@ -20,7 +20,7 @@ namespace Control_7155_10_04_450
         private const byte ZERO_BYTE_RX = 165;
         private const byte FIRST_BYTE_RX = 2;
 
-        private const byte ZERO_BYTE_TX = 170;
+        private const byte ZERO_BYTE_TX = 165;
         private const byte FIRST_BYTE_TX = 1;
 
         private const byte RX_SIZE = 8; 
@@ -139,22 +139,7 @@ namespace Control_7155_10_04_450
         }
         private void setSignalsResponses(byte[] pack)
         {
-            if(isCheckChannelMode)
-            {
-                int bt = pack[13];
-                if (((bt >> 0) & 0x01) == 0x01)
-                {
-                    buttonNot.BackColor = Color.GreenYellow;
-                    buttonNot.Text = "OK";
-                } 
-                else
-                {
-                    buttonNot.BackColor = Color.Red;
-                    buttonNot.Text = "ERR";
-                }
-            }
-            else
-            {
+            
                 checkBits(pack[2], 9);
                 checkBits(pack[3], 10);
                 if ((int)(pack[4] & 0x01) == 0x01)
@@ -171,8 +156,7 @@ namespace Control_7155_10_04_450
                         labelChip.ForeColor = Color.Black;
                         labelChip.Text = ERROR_MESSAGE;
                     }
-                }
-            }
+                }           
            
         }
 
@@ -182,45 +166,7 @@ namespace Control_7155_10_04_450
             isCorrectRx = false;
             Array.Clear(bufRx, 0, bufRx.Length);
 
-            if (isCheckChannelMode)
-            {
-                while (serialPort.BytesToRead > 0)
-                {
-                    try
-                    {
-                        bufRx[bytesCount] = (byte)serialPort.ReadByte();
-                        bytesCount++;
-
-                        switch (bytesCount)
-                        {
-                            case 1: if (bufRx[0] != ZERO_BYTE_RX) bytesCount = 0; break;
-                            case 2: if (bufRx[1] != FIRST_BYTE_RX) bytesCount = 0; break;
-                            case RX_SIZE + 8:
-                                bytesCount = 0;
-                                if (calcSumXor(bufRx, RX_SIZE + 8) == 0)
-                                {
-                                    Console.WriteLine("RX: " + BitConverter.ToString(bufRx, 0, RX_SIZE + 8));
-                                    isCorrectRx = true;
-                                }
-                                else
-                                {
-                                    Console.WriteLine("RX: Invalid XOR sum");
-                                }
-
-                                break;
-                        }
-                    }
-                    catch (Exception err)
-                    {
-                        MessageBox.Show(err.Message);
-                    }
-
-                    if (isCorrectRx)
-                        break;
-                }
-            }
-            else
-            {
+            
                 while (serialPort.BytesToRead > 0)
                 {
                     try
@@ -255,7 +201,7 @@ namespace Control_7155_10_04_450
                     if (isCorrectRx)
                         break;
                 }
-            }            
+                        
 
             if(isCorrectRx)
             {
@@ -326,9 +272,15 @@ namespace Control_7155_10_04_450
                 packToSend[12] = (byte)bt;
             }
 
+            bt = packToSend[11];
+            if(radioButtonSawtooth.Checked)
+            {
+                bt |= 0x02;
+                packToSend[11] = (byte)bt;
+            }
             
 
-                packToSend[TX_SIZE-1] = calcSumXor(packToSend, TX_SIZE-1);
+            packToSend[TX_SIZE-1] = calcSumXor(packToSend, TX_SIZE-1);
 
             return packToSend;
         }
@@ -377,6 +329,24 @@ namespace Control_7155_10_04_450
             {                
                 checkBoxINV2.Checked = checkBox.Checked;
             }
+            if(signal.Name.Equals("DA9, DA10"))
+            {
+                if(signal.isChecked)
+                {
+                    radioButtonSawtooth.Enabled = true;
+                    radioButtonTV.Enabled = true;
+                    radioButtonTV.Checked = true;
+                    trackBar1.Enabled = true;
+                } 
+                else
+                {
+                    radioButtonSawtooth.Enabled = false;
+                    radioButtonTV.Enabled = false;
+                    radioButtonTV.Checked = false;
+                    trackBar1.Enabled = false;
+                }
+                
+            }
         }
 
         private void radioButtonChangedEvent(object sender, EventArgs e)
@@ -390,8 +360,12 @@ namespace Control_7155_10_04_450
                 comboBox1.Enabled = true;
                 comboBox1.SelectedIndex = 0;                
             }
-            else if(radioButton.Text.Equals("DA9") || radioButton.Text.Equals("DA10"))
+            else if (radioButton.Text.Equals("DD8") || radioButton.Text.Equals("DD9"))
             {
+                comboBox1.Enabled = false;
+            }
+            else if(radioButton.Text.Equals("DA9") || radioButton.Text.Equals("DA10"))
+            { 
                 trackBar1.Enabled = true;
                 setTrackBarLabels();
             }
@@ -404,7 +378,7 @@ namespace Control_7155_10_04_450
             resetAllElements();
         }
 
-        private void buttonCheckChannel_Click(object sender, EventArgs e)
+        /*private void buttonCheckChannel_Click(object sender, EventArgs e)
         {
             buttonNot.BackColor = Color.SlateGray;
             isCheckChannelMode = true;
@@ -425,11 +399,11 @@ namespace Control_7155_10_04_450
                 serialPort.Close();
             }
             isCheckChannelMode = false;
-        }
+        }*/
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

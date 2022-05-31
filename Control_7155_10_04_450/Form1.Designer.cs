@@ -104,8 +104,8 @@ namespace Control_7155_10_04_450
             this.buttonSend = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.radioButtonDA10 = new System.Windows.Forms.RadioButton();
-            this.radioButtonDA9 = new System.Windows.Forms.RadioButton();
+            this.radioButtonSawtooth = new System.Windows.Forms.RadioButton();
+            this.radioButtonTV = new System.Windows.Forms.RadioButton();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -125,8 +125,8 @@ namespace Control_7155_10_04_450
             this.radioButtonDD8 = new System.Windows.Forms.RadioButton();
             this.buttonReset = new System.Windows.Forms.Button();
             this.labelInit = new System.Windows.Forms.Label();
-            this.buttonCheckChannel = new System.Windows.Forms.Button();
-            this.buttonNot = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.checkBoxDA9_DA10 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -136,6 +136,7 @@ namespace Control_7155_10_04_450
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // serialPort
@@ -1126,9 +1127,9 @@ namespace Control_7155_10_04_450
             this.buttonSend.Enabled = false;
             this.buttonSend.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.buttonSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSend.Location = new System.Drawing.Point(621, 459);
+            this.buttonSend.Location = new System.Drawing.Point(555, 459);
             this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(215, 45);
+            this.buttonSend.Size = new System.Drawing.Size(281, 45);
             this.buttonSend.TabIndex = 3;
             this.buttonSend.Text = "SEND";
             this.buttonSend.UseVisualStyleBackColor = false;
@@ -1137,6 +1138,7 @@ namespace Control_7155_10_04_450
             // groupBox6
             // 
             this.groupBox6.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox6.Controls.Add(this.checkBoxDA9_DA10);
             this.groupBox6.Controls.Add(this.groupBox7);
             this.groupBox6.Controls.Add(this.label22);
             this.groupBox6.Controls.Add(this.label21);
@@ -1160,41 +1162,39 @@ namespace Control_7155_10_04_450
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.radioButtonDA10);
-            this.groupBox7.Controls.Add(this.radioButtonDA9);
-            this.groupBox7.Location = new System.Drawing.Point(15, 20);
+            this.groupBox7.Controls.Add(this.radioButtonSawtooth);
+            this.groupBox7.Controls.Add(this.radioButtonTV);
+            this.groupBox7.Location = new System.Drawing.Point(13, 39);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(217, 44);
+            this.groupBox7.Size = new System.Drawing.Size(224, 37);
             this.groupBox7.TabIndex = 5;
             this.groupBox7.TabStop = false;
             // 
-            // radioButtonDA10
+            // radioButtonSawtooth
             // 
-            this.radioButtonDA10.AutoSize = true;
-            this.radioButtonDA10.Enabled = false;
-            this.radioButtonDA10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButtonDA10.Location = new System.Drawing.Point(136, 14);
-            this.radioButtonDA10.Name = "radioButtonDA10";
-            this.radioButtonDA10.Size = new System.Drawing.Size(68, 24);
-            this.radioButtonDA10.TabIndex = 1;
-            this.radioButtonDA10.TabStop = true;
-            this.radioButtonDA10.Text = "DA10";
-            this.radioButtonDA10.UseVisualStyleBackColor = true;
-            this.radioButtonDA10.CheckedChanged += new System.EventHandler(this.radioButtonChangedEvent);
+            this.radioButtonSawtooth.AutoSize = true;
+            this.radioButtonSawtooth.Enabled = false;
+            this.radioButtonSawtooth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButtonSawtooth.Location = new System.Drawing.Point(101, 13);
+            this.radioButtonSawtooth.Name = "radioButtonSawtooth";
+            this.radioButtonSawtooth.Size = new System.Drawing.Size(119, 20);
+            this.radioButtonSawtooth.TabIndex = 1;
+            this.radioButtonSawtooth.TabStop = true;
+            this.radioButtonSawtooth.Text = "Sawtooth signal";
+            this.radioButtonSawtooth.UseVisualStyleBackColor = true;
             // 
-            // radioButtonDA9
+            // radioButtonTV
             // 
-            this.radioButtonDA9.AutoSize = true;
-            this.radioButtonDA9.Enabled = false;
-            this.radioButtonDA9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButtonDA9.Location = new System.Drawing.Point(15, 14);
-            this.radioButtonDA9.Name = "radioButtonDA9";
-            this.radioButtonDA9.Size = new System.Drawing.Size(59, 24);
-            this.radioButtonDA9.TabIndex = 1;
-            this.radioButtonDA9.TabStop = true;
-            this.radioButtonDA9.Text = "DA9";
-            this.radioButtonDA9.UseVisualStyleBackColor = true;
-            this.radioButtonDA9.CheckedChanged += new System.EventHandler(this.radioButtonChangedEvent);
+            this.radioButtonTV.AutoSize = true;
+            this.radioButtonTV.Enabled = false;
+            this.radioButtonTV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButtonTV.Location = new System.Drawing.Point(13, 13);
+            this.radioButtonTV.Name = "radioButtonTV";
+            this.radioButtonTV.Size = new System.Drawing.Size(82, 20);
+            this.radioButtonTV.TabIndex = 1;
+            this.radioButtonTV.TabStop = true;
+            this.radioButtonTV.Text = "TV signal";
+            this.radioButtonTV.UseVisualStyleBackColor = true;
             // 
             // label22
             // 
@@ -1203,7 +1203,7 @@ namespace Control_7155_10_04_450
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label22.Location = new System.Drawing.Point(223, 115);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(15, 16);
+            this.label22.Size = new System.Drawing.Size(14, 16);
             this.label22.TabIndex = 2;
             this.label22.Text = "9";
             // 
@@ -1214,7 +1214,7 @@ namespace Control_7155_10_04_450
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label21.Location = new System.Drawing.Point(200, 115);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(15, 16);
+            this.label21.Size = new System.Drawing.Size(14, 16);
             this.label21.TabIndex = 2;
             this.label21.Text = "8";
             // 
@@ -1225,7 +1225,7 @@ namespace Control_7155_10_04_450
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label20.Location = new System.Drawing.Point(175, 115);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(15, 16);
+            this.label20.Size = new System.Drawing.Size(14, 16);
             this.label20.TabIndex = 2;
             this.label20.Text = "7";
             // 
@@ -1236,7 +1236,7 @@ namespace Control_7155_10_04_450
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label19.Location = new System.Drawing.Point(153, 115);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(15, 16);
+            this.label19.Size = new System.Drawing.Size(14, 16);
             this.label19.TabIndex = 2;
             this.label19.Text = "6";
             // 
@@ -1247,7 +1247,7 @@ namespace Control_7155_10_04_450
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label18.Location = new System.Drawing.Point(129, 115);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(15, 16);
+            this.label18.Size = new System.Drawing.Size(14, 16);
             this.label18.TabIndex = 2;
             this.label18.Text = "5";
             // 
@@ -1258,7 +1258,7 @@ namespace Control_7155_10_04_450
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label17.Location = new System.Drawing.Point(106, 115);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(15, 16);
+            this.label17.Size = new System.Drawing.Size(14, 16);
             this.label17.TabIndex = 2;
             this.label17.Text = "4";
             // 
@@ -1269,7 +1269,7 @@ namespace Control_7155_10_04_450
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label16.Location = new System.Drawing.Point(82, 115);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(15, 16);
+            this.label16.Size = new System.Drawing.Size(14, 16);
             this.label16.TabIndex = 2;
             this.label16.Text = "3";
             // 
@@ -1280,7 +1280,7 @@ namespace Control_7155_10_04_450
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label15.Location = new System.Drawing.Point(58, 115);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(15, 16);
+            this.label15.Size = new System.Drawing.Size(14, 16);
             this.label15.TabIndex = 2;
             this.label15.Text = "2";
             // 
@@ -1291,7 +1291,7 @@ namespace Control_7155_10_04_450
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label14.Location = new System.Drawing.Point(35, 115);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(15, 16);
+            this.label14.Size = new System.Drawing.Size(14, 16);
             this.label14.TabIndex = 2;
             this.label14.Text = "1";
             // 
@@ -1302,7 +1302,7 @@ namespace Control_7155_10_04_450
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label13.Location = new System.Drawing.Point(12, 115);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(15, 16);
+            this.label13.Size = new System.Drawing.Size(14, 16);
             this.label13.TabIndex = 2;
             this.label13.Text = "0";
             // 
@@ -1407,9 +1407,9 @@ namespace Control_7155_10_04_450
             // 
             this.buttonReset.BackColor = System.Drawing.Color.Silver;
             this.buttonReset.Enabled = false;
-            this.buttonReset.Location = new System.Drawing.Point(555, 459);
+            this.buttonReset.Location = new System.Drawing.Point(420, 479);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(60, 45);
+            this.buttonReset.Size = new System.Drawing.Size(120, 25);
             this.buttonReset.TabIndex = 6;
             this.buttonReset.Text = "Reset";
             this.buttonReset.UseVisualStyleBackColor = false;
@@ -1421,33 +1421,32 @@ namespace Control_7155_10_04_450
             this.labelInit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelInit.Location = new System.Drawing.Point(307, 459);
             this.labelInit.Name = "labelInit";
-            this.labelInit.Size = new System.Drawing.Size(83, 16);
+            this.labelInit.Size = new System.Drawing.Size(82, 16);
             this.labelInit.TabIndex = 7;
             this.labelInit.Text = "Select port";
             // 
-            // buttonCheckChannel
+            // pictureBox1
             // 
-            this.buttonCheckChannel.Enabled = false;
-            this.buttonCheckChannel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCheckChannel.Location = new System.Drawing.Point(420, 461);
-            this.buttonCheckChannel.Name = "buttonCheckChannel";
-            this.buttonCheckChannel.Size = new System.Drawing.Size(84, 44);
-            this.buttonCheckChannel.TabIndex = 8;
-            this.buttonCheckChannel.Text = "Check 485RXA/485TXA";
-            this.buttonCheckChannel.UseVisualStyleBackColor = true;
-            this.buttonCheckChannel.Click += new System.EventHandler(this.buttonCheckChannel_Click);
+            this.pictureBox1.Image = global::Control_7155_10_04_450.Properties.Resources.pcb;
+            this.pictureBox1.Location = new System.Drawing.Point(852, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(602, 491);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
-            // buttonNot
+            // checkBoxDA9_DA10
             // 
-            this.buttonNot.BackColor = System.Drawing.Color.SlateGray;
-            this.buttonNot.Enabled = false;
-            this.buttonNot.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonNot.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonNot.Location = new System.Drawing.Point(506, 461);
-            this.buttonNot.Name = "buttonNot";
-            this.buttonNot.Size = new System.Drawing.Size(34, 44);
-            this.buttonNot.TabIndex = 9;
-            this.buttonNot.UseVisualStyleBackColor = false;
+            this.checkBoxDA9_DA10.AutoSize = true;
+            this.checkBoxDA9_DA10.Enabled = false;
+            this.checkBoxDA9_DA10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxDA9_DA10.Location = new System.Drawing.Point(15, 22);
+            this.checkBoxDA9_DA10.Name = "checkBoxDA9_DA10";
+            this.checkBoxDA9_DA10.Size = new System.Drawing.Size(109, 24);
+            this.checkBoxDA9_DA10.TabIndex = 2;
+            this.checkBoxDA9_DA10.Text = "DA9, DA10";
+            this.checkBoxDA9_DA10.UseVisualStyleBackColor = true;
+            this.checkBoxDA9_DA10.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
             // Form1
             // 
@@ -1455,9 +1454,8 @@ namespace Control_7155_10_04_450
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(851, 515);
-            this.Controls.Add(this.buttonNot);
-            this.Controls.Add(this.buttonCheckChannel);
+            this.ClientSize = new System.Drawing.Size(1466, 517);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelInit);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.groupBox8);
@@ -1490,6 +1488,7 @@ namespace Control_7155_10_04_450
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1580,8 +1579,8 @@ namespace Control_7155_10_04_450
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.RadioButton radioButtonDA10;
-        private System.Windows.Forms.RadioButton radioButtonDA9;
+        private System.Windows.Forms.RadioButton radioButtonSawtooth;
+        private System.Windows.Forms.RadioButton radioButtonTV;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.GroupBox groupBox8;
@@ -1592,8 +1591,8 @@ namespace Control_7155_10_04_450
         private System.Windows.Forms.RadioButton radioButtonDD8;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Label labelInit;
-        private System.Windows.Forms.Button buttonCheckChannel;
-        private System.Windows.Forms.Button buttonNot;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox checkBoxDA9_DA10;
     }
 }
 
