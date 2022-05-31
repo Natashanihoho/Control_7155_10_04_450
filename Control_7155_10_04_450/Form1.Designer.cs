@@ -1248,6 +1248,7 @@ namespace Control_7155_10_04_450
             this.radioButtonSawtooth.TabStop = true;
             this.radioButtonSawtooth.Text = "Sawtooth signal";
             this.radioButtonSawtooth.UseVisualStyleBackColor = true;
+            this.radioButtonSawtooth.CheckedChanged += new System.EventHandler(this.radioButtonSawtooth_CheckedChanged);
             // 
             // radioButtonTV
             // 

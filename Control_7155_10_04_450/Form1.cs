@@ -338,7 +338,7 @@ namespace Control_7155_10_04_450
                     radioButtonSawtooth.Enabled = true;
                     radioButtonTV.Enabled = true;
                     radioButtonTV.Checked = true;
-                    trackBar1.Enabled = true;
+                    //trackBar1.Enabled = true;
                 } 
                 else
                 {
@@ -365,11 +365,6 @@ namespace Control_7155_10_04_450
             else if (radioButton.Text.Equals("DD8") || radioButton.Text.Equals("DD9"))
             {
                 comboBox1.Enabled = false;
-            }
-            else if(radioButton.Text.Equals("DA9") || radioButton.Text.Equals("DA10"))
-            { 
-                trackBar1.Enabled = true;
-                setTrackBarLabels();
             }
 
 
@@ -406,6 +401,21 @@ namespace Control_7155_10_04_450
         private void Form1_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void radioButtonSawtooth_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radioButtonSawtooth.Checked)
+            {
+                trackBar1.Enabled = true;
+                setTrackBarLabels();
+            }
+            else
+            {
+                trackBar1.Enabled = false;
+                resetTrackBarLabels();
+
+            }
         }
     }
 }
