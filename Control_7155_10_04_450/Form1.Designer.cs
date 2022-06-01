@@ -1016,9 +1016,9 @@ namespace Control_7155_10_04_450
             this.checkBoxINV2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkBoxINV2.Location = new System.Drawing.Point(13, 401);
             this.checkBoxINV2.Name = "checkBoxINV2";
-            this.checkBoxINV2.Size = new System.Drawing.Size(138, 24);
+            this.checkBoxINV2.Size = new System.Drawing.Size(140, 24);
             this.checkBoxINV2.TabIndex = 0;
-            this.checkBoxINV2.Text = "~INTP3 - INTP4";
+            this.checkBoxINV2.Text = "~INTN3 - INTN4";
             this.toolTip1.SetToolTip(this.checkBoxINV2, "(DD4.46-DD3.56-DD3.60-DD4.40)");
             this.checkBoxINV2.UseVisualStyleBackColor = true;
             // 
@@ -1029,9 +1029,9 @@ namespace Control_7155_10_04_450
             this.checkBoxINV1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkBoxINV1.Location = new System.Drawing.Point(13, 333);
             this.checkBoxINV1.Name = "checkBoxINV1";
-            this.checkBoxINV1.Size = new System.Drawing.Size(138, 24);
+            this.checkBoxINV1.Size = new System.Drawing.Size(140, 24);
             this.checkBoxINV1.TabIndex = 0;
-            this.checkBoxINV1.Text = "~INTP2 - INTP3";
+            this.checkBoxINV1.Text = "~INTN2 - INTN3";
             this.toolTip1.SetToolTip(this.checkBoxINV1, "(DD4.52-DD3.51-DD3.53-DD4.50)");
             this.checkBoxINV1.UseVisualStyleBackColor = true;
             // 
@@ -1056,9 +1056,9 @@ namespace Control_7155_10_04_450
             this.checkBoxINV0.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkBoxINV0.Location = new System.Drawing.Point(13, 265);
             this.checkBoxINV0.Name = "checkBoxINV0";
-            this.checkBoxINV0.Size = new System.Drawing.Size(138, 24);
+            this.checkBoxINV0.Size = new System.Drawing.Size(140, 24);
             this.checkBoxINV0.TabIndex = 0;
-            this.checkBoxINV0.Text = "~INTP0 - INTP1";
+            this.checkBoxINV0.Text = "~INTN0 - INTN1";
             this.toolTip1.SetToolTip(this.checkBoxINV0, "(DD4.59-DD3.41-DD3.47-DD4.55)");
             this.checkBoxINV0.UseVisualStyleBackColor = true;
             // 
