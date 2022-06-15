@@ -92,18 +92,18 @@ namespace Control_7155_10_04_450
 
                         if(signal.Name.Equals("INTP0 - INTP1"))
                         {
-                            if (((bt >> 4) & 0x01) == 0x01) showOkLabelText(label8);
-                            else showErrorLabelText(label8);
+                            if (((bt >> 4) & 0x01) == 0x01) showErrorLabelText(label8);
+                            else showOkLabelText(label8);
                         }
                         else if (signal.Name.Equals("INTP2 - INTP3"))
                         {
-                            if (((bt >> 4) & 0x01) == 0x01) showOkLabelText(label10);
-                            else showErrorLabelText(label10);
+                            if (((bt >> 5) & 0x01) == 0x01) showErrorLabelText(label10);
+                            else showOkLabelText(label10);
                         }
                         else if (signal.Name.Equals("INTP4 - INTP5"))
                         {
-                            if (((bt >> 4) & 0x01) == 0x01) showOkLabelText(label12);
-                            else showErrorLabelText(label12);
+                            if (((bt >> 6) & 0x01) == 0x01) showErrorLabelText(label12);
+                            else showOkLabelText(label12);
                         }
                     }                        
                     
@@ -321,6 +321,7 @@ namespace Control_7155_10_04_450
             Console.WriteLine(signal + " -------> isChecked: " + signal.isChecked);
             if(signal.Name.Equals("INTP0 - INTP1"))
             {
+                Console.WriteLine("checkBox.Checked: " + checkBox.Checked);                
                 checkBoxINV0.Checked = checkBox.Checked;
             }
             else if (signal.Name.Equals("INTP2 - INTP3"))
@@ -331,7 +332,17 @@ namespace Control_7155_10_04_450
             {                
                 checkBoxINV2.Checked = checkBox.Checked;
             }
-            if(signal.Name.Equals("DA9, DA10"))
+            else if(checkBox2.Checked || checkBox3.Checked || checkBox11.Checked || checkBox12.Checked)                
+            {
+                radioButtonDD8.Enabled = false;
+                radioButtonDD9.Enabled = false;
+            }
+            else if (!checkBox2.Checked || !checkBox3.Checked || !checkBox11.Checked || !checkBox12.Checked)
+            {
+                radioButtonDD8.Enabled = true;
+                radioButtonDD9.Enabled = true;
+            }
+            if (signal.Name.Equals("DA9, DA10"))
             {
                 if(signal.isChecked)
                 {
@@ -365,6 +376,23 @@ namespace Control_7155_10_04_450
             else if (radioButton.Text.Equals("DD8") || radioButton.Text.Equals("DD9"))
             {
                 comboBox1.Enabled = false;
+
+                if(radioButton.Checked)
+                {
+                    checkBox2.Enabled = false;
+                    checkBox3.Enabled = false;
+                    checkBox11.Enabled = false;
+                    checkBox12.Enabled = false;
+                } 
+                else
+                {
+                    checkBox2.Enabled = true;
+                    checkBox3.Enabled = true;
+                    checkBox11.Enabled = true;
+                    checkBox12.Enabled = true;
+                }
+                
+
             }
 
 
@@ -416,6 +444,14 @@ namespace Control_7155_10_04_450
                 resetTrackBarLabels();
 
             }
+        }
+
+        private void buttonResetDD_Click(object sender, EventArgs e)
+        {
+            radioButtonDD2.Checked = false;
+            radioButtonDD8.Checked = false;
+            radioButtonDD9.Checked = false;
+            comboBox1.Enabled = false;
         }
     }
 }

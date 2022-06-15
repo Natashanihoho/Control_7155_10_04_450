@@ -128,6 +128,7 @@ namespace Control_7155_10_04_450
             this.labelInit = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonResetDD = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1086,7 +1087,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDIR2.Size = new System.Drawing.Size(129, 24);
             this.checkBoxDIR2.TabIndex = 0;
             this.checkBoxDIR2.Text = "INTP4 - INTP5";
-            this.toolTip1.SetToolTip(this.checkBoxDIR2, "(DD4.47-DD3.55-DD3.59-DD4.41)");
+            this.toolTip1.SetToolTip(this.checkBoxDIR2, "(DD4.47-DD3.55-DD3.59-DD4.41) ~INTN4-INTN5(DD4.46-DD3.56-DD3.60-DD4.40) ");
             this.checkBoxDIR2.UseVisualStyleBackColor = true;
             this.checkBoxDIR2.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -1100,7 +1101,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDIR1.Size = new System.Drawing.Size(129, 24);
             this.checkBoxDIR1.TabIndex = 0;
             this.checkBoxDIR1.Text = "INTP2 - INTP3";
-            this.toolTip1.SetToolTip(this.checkBoxDIR1, "(DD4.53-DD3.50-DD3.52-DD4.51)");
+            this.toolTip1.SetToolTip(this.checkBoxDIR1, "(DD4.53-DD3.50-DD3.52-DD4.51) ~INTN2-INTN3(DD4.52-DD3.51-DD3.53-DD4.50) ");
             this.checkBoxDIR1.UseVisualStyleBackColor = true;
             this.checkBoxDIR1.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -1114,7 +1115,7 @@ namespace Control_7155_10_04_450
             this.checkBoxDIR0.Size = new System.Drawing.Size(129, 24);
             this.checkBoxDIR0.TabIndex = 0;
             this.checkBoxDIR0.Text = "INTP0 - INTP1";
-            this.toolTip1.SetToolTip(this.checkBoxDIR0, "(DD4.60-DD3.40-DD3.46-DD4.56)");
+            this.toolTip1.SetToolTip(this.checkBoxDIR0, "(DD4.60-DD3.40-DD3.46-DD4.56) ~INTN0-INTN1(DD4.59-DD3.41-DD3.47-DD4.55) ");
             this.checkBoxDIR0.UseVisualStyleBackColor = true;
             this.checkBoxDIR0.CheckedChanged += new System.EventHandler(this.CheckedChangedEvent);
             // 
@@ -1385,6 +1386,7 @@ namespace Control_7155_10_04_450
             // groupBox8
             // 
             this.groupBox8.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox8.Controls.Add(this.buttonResetDD);
             this.groupBox8.Controls.Add(this.comboBox1);
             this.groupBox8.Controls.Add(this.radioButtonDD2);
             this.groupBox8.Controls.Add(this.labelChip);
@@ -1435,11 +1437,11 @@ namespace Control_7155_10_04_450
             this.labelChip.Enabled = false;
             this.labelChip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelChip.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.labelChip.Location = new System.Drawing.Point(105, 57);
+            this.labelChip.Location = new System.Drawing.Point(98, 56);
             this.labelChip.Name = "labelChip";
-            this.labelChip.Size = new System.Drawing.Size(141, 20);
+            this.labelChip.Size = new System.Drawing.Size(69, 20);
             this.labelChip.TabIndex = 4;
-            this.labelChip.Text = "ttxtxtxttxtxtxttxxx";
+            this.labelChip.Text = "ttxtxtxtt";
             this.labelChip.Visible = false;
             // 
             // radioButtonDD9
@@ -1461,7 +1463,7 @@ namespace Control_7155_10_04_450
             this.radioButtonDD8.AutoSize = true;
             this.radioButtonDD8.Enabled = false;
             this.radioButtonDD8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButtonDD8.Location = new System.Drawing.Point(107, 27);
+            this.radioButtonDD8.Location = new System.Drawing.Point(98, 30);
             this.radioButtonDD8.Name = "radioButtonDD8";
             this.radioButtonDD8.Size = new System.Drawing.Size(60, 24);
             this.radioButtonDD8.TabIndex = 6;
@@ -1501,6 +1503,17 @@ namespace Control_7155_10_04_450
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
+            // 
+            // buttonResetDD
+            // 
+            this.buttonResetDD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonResetDD.Location = new System.Drawing.Point(186, 56);
+            this.buttonResetDD.Name = "buttonResetDD";
+            this.buttonResetDD.Size = new System.Drawing.Size(60, 23);
+            this.buttonResetDD.TabIndex = 8;
+            this.buttonResetDD.Text = "reset";
+            this.buttonResetDD.UseVisualStyleBackColor = true;
+            this.buttonResetDD.Click += new System.EventHandler(this.buttonResetDD_Click);
             // 
             // Form1
             // 
@@ -1648,6 +1661,7 @@ namespace Control_7155_10_04_450
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox checkBoxDA9_DA10;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button buttonResetDD;
     }
 }
 
