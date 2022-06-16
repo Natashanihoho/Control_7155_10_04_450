@@ -141,9 +141,9 @@ namespace Control_7155_10_04_450
             
                 checkBits(pack[2], 9);
                 checkBits(pack[3], 10);
-                if ((int)(pack[4] & 0x01) == 0x01)
+                if (radioButtonDD2.Checked == true || radioButtonDD8.Checked == true || radioButtonDD9.Checked == true)
                 {
-                    if (radioButtonDD2.Checked == true || radioButtonDD8.Checked == true || radioButtonDD9.Checked == true)
+                    if ((int)(pack[4] & 0x01) == 0x01)
                     {
                         labelChip.BackColor = Color.GreenYellow;
                         labelChip.ForeColor = Color.Black;
@@ -155,7 +155,7 @@ namespace Control_7155_10_04_450
                         labelChip.ForeColor = Color.Black;
                         labelChip.Text = ERROR_MESSAGE;
                     }
-                }           
+                }         
            
         }
 
@@ -452,6 +452,10 @@ namespace Control_7155_10_04_450
             radioButtonDD8.Checked = false;
             radioButtonDD9.Checked = false;
             comboBox1.Enabled = false;
+
+            labelChip.BackColor = SystemColors.AppWorkspace;
+            labelChip.ForeColor = SystemColors.AppWorkspace;
+            labelChip.Text = "ERROR";
         }
     }
 }
