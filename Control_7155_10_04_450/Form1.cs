@@ -23,13 +23,14 @@ namespace Control_7155_10_04_450
         private const byte ZERO_BYTE_TX = 165;
         private const byte FIRST_BYTE_TX = 1;
 
-        private const byte RX_SIZE = 8; 
+        private const byte RX_SIZE = 16; //8; 
         private const byte TX_SIZE = 16;
 
         private const string OK_MESSAGE = "OK        ";
-        private const string ERROR_MESSAGE = "ERROR";
+        private const string ERROR_MESSAGE = "ERR: ";
 
-        private byte[] bufRx = new byte[RX_SIZE + 8];
+        private byte[] bufRx = new byte[RX_SIZE];
+        private byte[] tempBuf = new byte[RX_SIZE];
         private byte bytesCount = 0;
 
         private List<Signal> signals = new List<Signal>();
@@ -138,7 +139,7 @@ namespace Control_7155_10_04_450
         }
         private void setSignalsResponses(byte[] pack)
         {
-            
+                this.Text = "Testing application v1.00 (7155.10.04.450_v" + bufRx[13] + ".00)";
                 checkBits(pack[2], 9);
                 checkBits(pack[3], 10);
                 if (radioButtonDD2.Checked == true || radioButtonDD8.Checked == true || radioButtonDD9.Checked == true)
@@ -153,8 +154,17 @@ namespace Control_7155_10_04_450
                     {
                         labelChip.BackColor = Color.Red;
                         labelChip.ForeColor = Color.Black;
-                        labelChip.Text = ERROR_MESSAGE;
+                        int errorCode = pack[4] >> 1;
+                        labelChip.Text = ERROR_MESSAGE + errorCode.ToString();
+
+                        if (radioButtonDD2.Checked)
+                        {
+                            labelChip.BackColor = Color.Red;
+                            labelChip.ForeColor = Color.Black;                            
+                            
+                        }
                     }
+
                 }         
            
         }
@@ -162,6 +172,7 @@ namespace Control_7155_10_04_450
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             bytesCount = 0;
+            //buttonErrorInfo.Enabled = false;
             //isCorrectRx = false;
             Array.Clear(bufRx, 0, bufRx.Length);
 
@@ -371,13 +382,15 @@ namespace Control_7155_10_04_450
             if (radioButton.Text.Equals("DD2"))
             {
                 comboBox1.Enabled = true;
+                buttonErrorInfo.Enabled = true;
                 comboBox1.SelectedIndex = 0;                
             }
             else if (radioButton.Text.Equals("DD8") || radioButton.Text.Equals("DD9"))
             {
                 comboBox1.Enabled = false;
+                buttonErrorInfo.Enabled = false;
 
-                if(radioButton.Checked)
+                if (radioButton.Checked)
                 {
                     checkBox2.Enabled = false;
                     checkBox3.Enabled = false;
@@ -390,8 +403,7 @@ namespace Control_7155_10_04_450
                     checkBox3.Enabled = true;
                     checkBox11.Enabled = true;
                     checkBox12.Enabled = true;
-                }
-                
+                }                
 
             }
 
@@ -456,6 +468,37 @@ namespace Control_7155_10_04_450
             labelChip.BackColor = SystemColors.AppWorkspace;
             labelChip.ForeColor = SystemColors.AppWorkspace;
             labelChip.Text = "ERROR";
+        }
+
+        private static string ToBinary(int x)
+        {
+            char[] buff = new char[32];
+
+            for (int i = 31; i >= 0; i--)
+            {
+                int mask = 1 << i;
+                buff[31 - i] = (x & mask) != 0 ? '1' : '0';
+            }
+
+            return new string(buff);
+        }
+
+        private void buttonErrorInfo_Click(object sender, EventArgs e)
+        {            
+            StringBuilder builder = new StringBuilder("First error address: ");
+
+            int address = (bufRx[5] << 8) + bufRx[6];
+            builder.Append("0x");
+            builder.Append(address.ToString("X4"));
+            builder.Append("\nData: ");
+            int data = (bufRx[7] << 24) + (bufRx[8] << 16) + (bufRx[9] << 8) + bufRx[10];
+            
+            builder.Append(ToBinary(data));
+            //builder.Append(Convert.ToString(data, 2));
+            builder.Append("\nError counter: ");
+            int errors = (bufRx[11] << 8) + bufRx[12];
+            builder.Append(errors);
+            MessageBox.Show(builder.ToString());
         }
     }
 }

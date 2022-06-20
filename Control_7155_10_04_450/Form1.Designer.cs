@@ -119,6 +119,7 @@ namespace Control_7155_10_04_450
             this.label13 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.buttonResetDD = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.radioButtonDD2 = new System.Windows.Forms.RadioButton();
             this.labelChip = new System.Windows.Forms.Label();
@@ -128,7 +129,7 @@ namespace Control_7155_10_04_450
             this.labelInit = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonResetDD = new System.Windows.Forms.Button();
+            this.buttonErrorInfo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -151,9 +152,9 @@ namespace Control_7155_10_04_450
             this.comboBoxPorts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxPorts.FormattingEnabled = true;
             this.comboBoxPorts.ItemHeight = 16;
-            this.comboBoxPorts.Location = new System.Drawing.Point(285, 479);
+            this.comboBoxPorts.Location = new System.Drawing.Point(465, 479);
             this.comboBoxPorts.Name = "comboBoxPorts";
-            this.comboBoxPorts.Size = new System.Drawing.Size(120, 24);
+            this.comboBoxPorts.Size = new System.Drawing.Size(84, 24);
             this.comboBoxPorts.TabIndex = 0;
             this.comboBoxPorts.SelectedIndexChanged += new System.EventHandler(this.comboBoxPorts_SelectedIndexChanged);
             // 
@@ -1386,6 +1387,7 @@ namespace Control_7155_10_04_450
             // groupBox8
             // 
             this.groupBox8.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox8.Controls.Add(this.buttonErrorInfo);
             this.groupBox8.Controls.Add(this.buttonResetDD);
             this.groupBox8.Controls.Add(this.comboBox1);
             this.groupBox8.Controls.Add(this.radioButtonDD2);
@@ -1396,10 +1398,21 @@ namespace Control_7155_10_04_450
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox8.Location = new System.Drawing.Point(285, 357);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(255, 90);
+            this.groupBox8.Size = new System.Drawing.Size(172, 147);
             this.groupBox8.TabIndex = 5;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "ROM / RAM checking";
+            // 
+            // buttonResetDD
+            // 
+            this.buttonResetDD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonResetDD.Location = new System.Drawing.Point(89, 109);
+            this.buttonResetDD.Name = "buttonResetDD";
+            this.buttonResetDD.Size = new System.Drawing.Size(69, 23);
+            this.buttonResetDD.TabIndex = 8;
+            this.buttonResetDD.Text = "reset";
+            this.buttonResetDD.UseVisualStyleBackColor = true;
+            this.buttonResetDD.Click += new System.EventHandler(this.buttonResetDD_Click);
             // 
             // comboBox1
             // 
@@ -1437,7 +1450,7 @@ namespace Control_7155_10_04_450
             this.labelChip.Enabled = false;
             this.labelChip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelChip.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.labelChip.Location = new System.Drawing.Point(98, 56);
+            this.labelChip.Location = new System.Drawing.Point(89, 57);
             this.labelChip.Name = "labelChip";
             this.labelChip.Size = new System.Drawing.Size(69, 20);
             this.labelChip.TabIndex = 4;
@@ -1449,7 +1462,7 @@ namespace Control_7155_10_04_450
             this.radioButtonDD9.AutoSize = true;
             this.radioButtonDD9.Enabled = false;
             this.radioButtonDD9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButtonDD9.Location = new System.Drawing.Point(186, 27);
+            this.radioButtonDD9.Location = new System.Drawing.Point(13, 110);
             this.radioButtonDD9.Name = "radioButtonDD9";
             this.radioButtonDD9.Size = new System.Drawing.Size(60, 24);
             this.radioButtonDD9.TabIndex = 6;
@@ -1463,7 +1476,7 @@ namespace Control_7155_10_04_450
             this.radioButtonDD8.AutoSize = true;
             this.radioButtonDD8.Enabled = false;
             this.radioButtonDD8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButtonDD8.Location = new System.Drawing.Point(98, 30);
+            this.radioButtonDD8.Location = new System.Drawing.Point(13, 83);
             this.radioButtonDD8.Name = "radioButtonDD8";
             this.radioButtonDD8.Size = new System.Drawing.Size(60, 24);
             this.radioButtonDD8.TabIndex = 6;
@@ -1476,9 +1489,10 @@ namespace Control_7155_10_04_450
             // 
             this.buttonReset.BackColor = System.Drawing.Color.Silver;
             this.buttonReset.Enabled = false;
-            this.buttonReset.Location = new System.Drawing.Point(420, 479);
+            this.buttonReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonReset.Location = new System.Drawing.Point(470, 357);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(120, 25);
+            this.buttonReset.Size = new System.Drawing.Size(70, 90);
             this.buttonReset.TabIndex = 6;
             this.buttonReset.Text = "Reset";
             this.buttonReset.UseVisualStyleBackColor = false;
@@ -1487,10 +1501,10 @@ namespace Control_7155_10_04_450
             // labelInit
             // 
             this.labelInit.AutoSize = true;
-            this.labelInit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInit.Location = new System.Drawing.Point(307, 459);
+            this.labelInit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelInit.Location = new System.Drawing.Point(467, 449);
             this.labelInit.Name = "labelInit";
-            this.labelInit.Size = new System.Drawing.Size(82, 16);
+            this.labelInit.Size = new System.Drawing.Size(76, 15);
             this.labelInit.TabIndex = 7;
             this.labelInit.Text = "Select port";
             // 
@@ -1504,16 +1518,17 @@ namespace Control_7155_10_04_450
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // buttonResetDD
+            // buttonErrorInfo
             // 
-            this.buttonResetDD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonResetDD.Location = new System.Drawing.Point(186, 56);
-            this.buttonResetDD.Name = "buttonResetDD";
-            this.buttonResetDD.Size = new System.Drawing.Size(60, 23);
-            this.buttonResetDD.TabIndex = 8;
-            this.buttonResetDD.Text = "reset";
-            this.buttonResetDD.UseVisualStyleBackColor = true;
-            this.buttonResetDD.Click += new System.EventHandler(this.buttonResetDD_Click);
+            this.buttonErrorInfo.Enabled = false;
+            this.buttonErrorInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonErrorInfo.Location = new System.Drawing.Point(89, 83);
+            this.buttonErrorInfo.Name = "buttonErrorInfo";
+            this.buttonErrorInfo.Size = new System.Drawing.Size(69, 23);
+            this.buttonErrorInfo.TabIndex = 9;
+            this.buttonErrorInfo.Text = "info";
+            this.buttonErrorInfo.UseVisualStyleBackColor = true;
+            this.buttonErrorInfo.Click += new System.EventHandler(this.buttonErrorInfo_Click);
             // 
             // Form1
             // 
@@ -1536,7 +1551,7 @@ namespace Control_7155_10_04_450
             this.Controls.Add(this.comboBoxPorts);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
-            this.Text = "7155.10.04.450";
+            this.Text = "Testing application v1.00 (7155.10.04.450_v1.00)";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -1662,6 +1677,7 @@ namespace Control_7155_10_04_450
         private System.Windows.Forms.CheckBox checkBoxDA9_DA10;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button buttonResetDD;
+        private System.Windows.Forms.Button buttonErrorInfo;
     }
 }
 
