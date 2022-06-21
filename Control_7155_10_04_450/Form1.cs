@@ -27,10 +27,10 @@ namespace Control_7155_10_04_450
         private const byte TX_SIZE = 16;
 
         private const string OK_MESSAGE = "OK        ";
-        private const string ERROR_MESSAGE = "ERR: ";
+        private const string ERROR_MESSAGE = "ERROR";
+        private const string ERR_MESSAGE = "ERR: ";
 
         private byte[] bufRx = new byte[RX_SIZE];
-        private byte[] tempBuf = new byte[RX_SIZE];
         private byte bytesCount = 0;
 
         private List<Signal> signals = new List<Signal>();
@@ -81,61 +81,59 @@ namespace Control_7155_10_04_450
         }
         private void checkBits(int bt, int nBt)
         {
-            for (int i = 0; i < 6; i++)
+            int count = nBt == 9 ? 6 : 3;
+            for(int i = 0; i < count; i++)
             {
-                if (((bt >> i) & 0x01) == 0x01)
+                Signal signal = signals.Find(n => n.ByteNumber == nBt && n.BitNumber == i);
+                if(signal != null)
                 {
-                    Signal signal = signals.Find(n => n.ByteNumber == nBt && n.BitNumber == i);
-                    if(signal != null && signal.isChecked)
+                    Label label = map[signal.Name];
+                    if (signal.isChecked)
                     {
-                        Label label = map[signal.Name];
-                        showOkLabelText(label);
+                        if (((bt >> i) & 0x01) == 0x01) showOkLabelText(label);
+                        else showErrorLabelText(label);
 
-                        if(signal.Name.Equals("INTP0 - INTP1"))
+                        if (signal.Name.Equals("INTP0 - INTP1"))
                         {
                             if (((bt >> 4) & 0x01) == 0x01) showErrorLabelText(label8);
                             else showOkLabelText(label8);
                         }
-                        else if (signal.Name.Equals("INTP2 - INTP3"))
+                        if (signal.Name.Equals("INTP2 - INTP3"))
                         {
                             if (((bt >> 5) & 0x01) == 0x01) showErrorLabelText(label10);
                             else showOkLabelText(label10);
                         }
-                        else if (signal.Name.Equals("INTP4 - INTP5"))
+                        if (signal.Name.Equals("INTP4 - INTP5"))
                         {
                             if (((bt >> 6) & 0x01) == 0x01) showErrorLabelText(label12);
                             else showOkLabelText(label12);
                         }
-                    }                        
-                    
-                }
-                else
-                {
-                    Signal signal = signals.Find(n => n.ByteNumber == nBt && n.BitNumber == i);
-                    if(signal != null && signal.isChecked)
+
+                    }
+                    else
                     {
-                        Label label = map[signal.Name];
-                        showErrorLabelText(label);
+                        if (((bt >> i) & 0x01) == 0x01) showErrorLabelText(label);
+                        else showOkLabelText(label);
 
                         if (signal.Name.Equals("INTP0 - INTP1"))
                         {
                             if (((bt >> 4) & 0x01) == 0x01) showOkLabelText(label8);
                             else showErrorLabelText(label8);
                         }
-                        else if (signal.Name.Equals("INTP2 - INTP3"))
+                        if (signal.Name.Equals("INTP2 - INTP3"))
                         {
-                            if (((bt >> 4) & 0x01) == 0x01) showOkLabelText(label10);
+                            if (((bt >> 5) & 0x01) == 0x01) showOkLabelText(label10);
                             else showErrorLabelText(label10);
                         }
-                        else if (signal.Name.Equals("INTP4 - INTP5"))
+                        if (signal.Name.Equals("INTP4 - INTP5"))
                         {
-                            if (((bt >> 4) & 0x01) == 0x01) showOkLabelText(label12);
+                            if (((bt >> 6) & 0x01) == 0x01) showOkLabelText(label12);
                             else showErrorLabelText(label12);
                         }
-                    }                       
-                    
+                    }
                 }
             }
+            
         }
         private void setSignalsResponses(byte[] pack)
         {
@@ -155,7 +153,7 @@ namespace Control_7155_10_04_450
                         labelChip.BackColor = Color.Red;
                         labelChip.ForeColor = Color.Black;
                         int errorCode = pack[4] >> 1;
-                        labelChip.Text = ERROR_MESSAGE + errorCode.ToString();
+                        labelChip.Text = ERR_MESSAGE + errorCode.ToString();
 
                         if (radioButtonDD2.Checked)
                         {
@@ -165,7 +163,7 @@ namespace Control_7155_10_04_450
                         }
                     }
 
-                }         
+                }        
            
         }
 
@@ -470,14 +468,14 @@ namespace Control_7155_10_04_450
             labelChip.Text = "ERROR";
         }
 
-        private static string ToBinary(int x)
+        private static string ToBinary(int x, int bits)
         {
-            char[] buff = new char[32];
+            char[] buff = new char[bits];
 
-            for (int i = 31; i >= 0; i--)
+            for (int i = bits - 1; i >= 0; i--)
             {
                 int mask = 1 << i;
-                buff[31 - i] = (x & mask) != 0 ? '1' : '0';
+                buff[bits - 1 - i] = (x & mask) != 0 ? '1' : '0';
             }
 
             return new string(buff);
@@ -488,13 +486,11 @@ namespace Control_7155_10_04_450
             StringBuilder builder = new StringBuilder("First error address: ");
 
             int address = (bufRx[5] << 8) + bufRx[6];
-            builder.Append("0x");
-            builder.Append(address.ToString("X4"));
+            builder.Append(ToBinary(address, 16));
             builder.Append("\nData: ");
             int data = (bufRx[7] << 24) + (bufRx[8] << 16) + (bufRx[9] << 8) + bufRx[10];
             
-            builder.Append(ToBinary(data));
-            //builder.Append(Convert.ToString(data, 2));
+            builder.Append(ToBinary(data, 32));
             builder.Append("\nError counter: ");
             int errors = (bufRx[11] << 8) + bufRx[12];
             builder.Append(errors);
